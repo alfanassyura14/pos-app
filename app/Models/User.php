@@ -18,9 +18,8 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
-        'email',
-        'password',
+        'u_email',
+        'u_password',
     ];
 
     /**
@@ -29,7 +28,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $hidden = [
-        'password',
+        'u_password',
         'remember_token',
     ];
 
@@ -39,7 +38,22 @@ class User extends Authenticatable
      * @var array<string, string>
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
-        'password' => 'hashed',
+        'u_password' => 'hashed',
     ];
+
+    /**
+     * Get the password for authentication.
+     */
+    public function getAuthPassword()
+    {
+        return $this->u_password;
+    }
+
+    /**
+     * Get the email column name for authentication.
+     */
+    public function getEmailForPasswordReset()
+    {
+        return $this->u_email;
+    }
 }
