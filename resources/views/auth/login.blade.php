@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - AZURRPOS</title>
+    <title>Login - PINGU</title>
     <style>
         * {
             margin: 0;
@@ -26,7 +26,7 @@
             font-size: 2.5rem;
             font-weight: bold;
             margin-bottom: 3rem;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -150,7 +150,7 @@
         .login-button {
             width: 100%;
             padding: 1rem;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%);
             border: none;
             border-radius: 10px;
             color: #fff;
@@ -187,7 +187,7 @@
     </style>
 </head>
 <body>
-    <div class="logo">AZURRPOS</div>
+    <div class="logo">PINGU</div>
     
     <div class="login-container">
         <h1 class="login-title">Login!</h1>

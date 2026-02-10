@@ -1,0 +1,215 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Order;
+use App\Models\OrderItem;
+use App\Models\Product;
+use App\Models\Category;
+use App\Models\Sale;
+use App\Models\SaleDetail;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+
+class OrderController extends Controller
+{
+    public function index()
+    {
+        $orders = Order::with(['orderItems.product', 'user'])
+            ->orderBy('created_at', 'desc')
+            ->get();
+        
+        return view('orders.index', compact('orders'));
+    }
+
+    public function create()
+    {
+        $categories = Category::with(['products' => function($query) {
+            $query->where('stock', '>', 0);
+        }])->get();
+        
+        $products = Product::where('stock', '>', 0)->get();
+        
+        return view('orders.create', compact('categories', 'products'));
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'table_number' => 'nullable|string',
+            'items' => 'required|array|min:1',
+            'items.*.product_id' => 'required|exists:products,id',
+            'items.*.quantity' => 'required|integer|min:1',
+            'discount' => 'nullable|numeric|min:0',
+            'voucher_code' => 'nullable|string',
+        ]);
+
+        DB::beginTransaction();
+        try {
+            // Calculate totals
+            $subtotal = 0;
+            $items = [];
+
+            foreach ($request->items as $item) {
+                $product = Product::findOrFail($item['product_id']);
+                
+                if ($product->stock < $item['quantity']) {
+                    return response()->json([
+                        'error' => "Insufficient stock for {$product->name}"
+                    ], 422);
+                }
+
+                $itemSubtotal = $product->price * $item['quantity'];
+                $subtotal += $itemSubtotal;
+
+                $items[] = [
+                    'product' => $product,
+                    'quantity' => $item['quantity'],
+                    'price' => $product->price,
+                    'subtotal' => $itemSubtotal,
+                ];
+            }
+
+            // Calculate tax (11%)
+            $tax = $subtotal * 0.11;
+            
+            // Calculate discount
+            $discount = $request->discount ?? 0;
+            
+            // Calculate total
+            $total = $subtotal + $tax - $discount;
+
+            // Generate sale number
+            $saleNumber = 'SALE-' . date('Ymd') . '-' . str_pad(Sale::whereDate('created_at', today())->count() + 1, 4, '0', STR_PAD_LEFT);
+
+            // Create sale record directly (no order needed)
+            $sale = Sale::create([
+                'user_id' => Auth::id(),
+                'sale_number' => $saleNumber,
+                'order_id' => null, // No order needed
+                'customer_name' => $request->customer_name ?? $request->table_number ?? 'Walk-in Customer',
+                'table_number' => $request->table_number,
+                'sale_date' => now(),
+                'amount' => $total,
+                'subtotal' => $subtotal,
+                'tax' => $tax,
+                'discount' => $discount,
+                'total_price' => $total,
+                'payment_method' => $request->payment_method ?? 'cash',
+            ]);
+
+            // Create sale details and update stock
+            foreach ($items as $item) {
+                SaleDetail::create([
+                    'sale_id' => $sale->id,
+                    'product_id' => $item['product']->id,
+                    'category_id' => $item['product']->category_id,
+                    'quantity' => $item['quantity'],
+                    'price' => $item['price'],
+                    'discount' => 0, // Per item discount can be added later
+                    'subtotal' => $item['subtotal'],
+                ]);
+
+                // Update product stock
+                $item['product']->decrement('stock', $item['quantity']);
+            }
+
+            DB::commit();
+
+            return response()->json([
+                'success' => true,
+                'sale_id' => $sale->id,
+                'sale_number' => $saleNumber,
+                'message' => 'Sale created successfully'
+            ]);
+
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return response()->json([
+                'error' => 'Failed to create order: ' . $e->getMessage()
+            ], 500);
+        }
+    }
+
+    public function show($id)
+    {
+        $order = Order::with(['orderItems.product', 'user'])->findOrFail($id);
+        return view('orders.show', compact('order'));
+    }
+
+    public function invoice($id)
+    {
+        $order = Order::with(['orderItems.product', 'user'])->findOrFail($id);
+        return view('orders.invoice', compact('order'));
+    }
+
+    public function saleInvoice($id)
+    {
+        $sale = Sale::with(['saleDetails.product', 'saleDetails.category', 'user'])->findOrFail($id);
+        return view('orders.sale-invoice', compact('sale'));
+    }
+
+    public function updateStatus(Request $request, $id)
+    {
+        $request->validate([
+            'status' => 'required|in:open,in_process,completed,cancelled',
+        ]);
+
+        $order = Order::findOrFail($id);
+        $order->update(['status' => $request->status]);
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Order status updated successfully'
+        ]);
+    }
+
+    public function payBill(Request $request, $id)
+    {
+        $request->validate([
+            'payment_method' => 'required|in:cash,card,qr',
+        ]);
+
+        $order = Order::findOrFail($id);
+        $order->update([
+            'payment_status' => 'paid',
+            'payment_method' => $request->payment_method,
+            'status' => 'completed',
+        ]);
+
+        // Update sale record if exists
+        if ($order->sale) {
+            $order->sale->update([
+                'payment_method' => $request->payment_method,
+            ]);
+        }
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Payment processed successfully',
+            'redirect_url' => route('orders.invoice', $order->id)
+        ]);
+    }
+
+    public function destroy($id)
+    {
+        $order = Order::findOrFail($id);
+        
+        // Restore stock for each item
+        foreach ($order->orderItems as $item) {
+            $item->product->increment('stock', $item->quantity);
+        }
+        
+        // Delete order items
+        $order->orderItems()->delete();
+        
+        // Delete order
+        $order->delete();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Order deleted successfully'
+        ]);
+    }
+}
