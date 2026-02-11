@@ -141,8 +141,7 @@
 
         /* Top Bar */
         .topbar {
-            background: rgba(45, 55, 72, 0.5);
-            backdrop-filter: blur(10px);
+            background: transparent;
             padding: 1rem 2rem;
             display: flex;
             justify-content: space-between;

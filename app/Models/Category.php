@@ -10,14 +10,14 @@ class Category extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name',
-        'description',
+        'c_name',
+        'c_description',
         'icon',
         'menu_type',
     ];
 
     public function products()
     {
-        return $this->hasMany(Product::class);
+        return $this->hasMany(Product::class, 'category_id');
     }
 }

@@ -683,7 +683,7 @@
                 @foreach($categories as $category)
                 <div class="category-card" data-category="{{ $category->id }}">
                     <div class="category-icon">{{ $category->icon ?? '📦' }}</div>
-                    <div class="category-name">{{ $category->name }}</div>
+                    <div class="category-name">{{ $category->c_name }}</div>
                     <div class="category-count">{{ $category->products->count() }} items</div>
                 </div>
                 @endforeach
@@ -697,19 +697,19 @@
                 @foreach($products as $product)
                 <div class="product-card" 
                      data-id="{{ $product->id }}"
-                     data-name="{{ $product->name }}"
-                     data-price="{{ $product->price }}"
+                     data-name="{{ $product->p_name }}"
+                     data-price="{{ $product->p_price }}"
                      data-category="{{ $product->category_id }}"
                      data-icon="{{ $product->category->icon ?? '🍽️' }}"
-                     data-stock="{{ $product->stock }}">
-                    <span class="product-stock {{ $product->stock <= 5 ? 'stock-low' : 'stock-available' }}">
-                        {{ $product->stock }} left
+                     data-stock="{{ $product->p_stock }}">
+                    <span class="product-stock {{ $product->p_stock <= 5 ? 'stock-low' : 'stock-available' }}">
+                        {{ $product->p_stock }} left
                     </span>
                     <div class="product-image">{{ $product->category->icon ?? '🍽️' }}</div>
                     <div class="product-info">
-                        <div class="product-name">{{ $product->name }}</div>
-                        <div class="product-category">{{ $product->category->name ?? 'Uncategorized' }}</div>
-                        <div class="product-price">Rp {{ number_format($product->price, 0, ',', '.') }}</div>
+                        <div class="product-name">{{ $product->p_name }}</div>
+                        <div class="product-category">{{ $product->category->c_name ?? 'Uncategorized' }}</div>
+                        <div class="product-price">Rp {{ number_format($product->p_price, 0, ',', '.') }}</div>
                     </div>
                 </div>
                 @endforeach

@@ -201,8 +201,8 @@
             <div class="info-section">
                 <div class="info-block">
                     <h3>Invoice Details</h3>
-                    <p><strong>Date:</strong> {{ $sale->sale_date->format('F d, Y') }}</p>
-                    <p><strong>Time:</strong> {{ $sale->sale_date->format('h:i A') }}</p>
+                    <p><strong>Date:</strong> {{ $sale->created_at->format('F d, Y') }}</p>
+                    <p><strong>Time:</strong> {{ $sale->created_at->format('h:i A') }}</p>
                     @if($sale->table_number)
                     <p><strong>Table:</strong> {{ $sale->table_number }}</p>
                     @endif
@@ -232,9 +232,9 @@
                     @foreach($sale->saleDetails as $item)
                     <tr>
                         <td>
-                            <div class="item-name">{{ $item->product->name ?? 'Product' }}</div>
+                            <div class="item-name">{{ $item->product->p_name ?? 'Product' }}</div>
                         </td>
-                        <td>{{ $item->category->name ?? '-' }}</td>
+                        <td>{{ $item->product->category->c_name ?? '-' }}</td>
                         <td class="text-center">{{ $item->quantity }}</td>
                         <td class="text-right">Rp {{ number_format($item->price, 0, ',', '.') }}</td>
                         <td class="text-right">Rp {{ number_format($item->subtotal, 0, ',', '.') }}</td>
@@ -261,7 +261,7 @@
                 @endif
                 <div class="summary-row total">
                     <span>Total Amount</span>
-                    <span>Rp {{ number_format($sale->total_price, 0, ',', '.') }}</span>
+                    <span>Rp {{ number_format($sale->subtotal, 0, ',', '.') }}</span>
                 </div>
             </div>
         </div>

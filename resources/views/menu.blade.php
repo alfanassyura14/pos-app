@@ -566,15 +566,15 @@
             <div class="category-icon">
                 {!! $category->icon ?? '📦' !!}
             </div>
-            <div class="category-name">{{ $category->name }}</div>
+            <div class="category-name">{{ $category->c_name }}</div>
             <div class="category-count">{{ $category->products_count }} items</div>
             <div class="action-buttons" style="position: absolute; top: 0.5rem; right: 0.5rem; display: none;">
-                <button class="icon-btn edit" data-id="{{ $category->id }}" data-name="{{ $category->name }}" data-description="{{ $category->description }}" data-icon="{{ $category->icon }}" data-menu-type="{{ $category->menu_type }}">
+                <button class="icon-btn edit" data-id="{{ $category->id }}" data-name="{{ $category->c_name }}" data-description="{{ $category->c_description }}" data-icon="{{ $category->icon }}" data-menu-type="{{ $category->menu_type }}">
                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="16" height="16">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
                     </svg>
                 </button>
-                <button class="icon-btn delete" data-id="{{ $category->id }}" data-name="{{ $category->name }}">
+                <button class="icon-btn delete" data-id="{{ $category->id }}" data-name="{{ $category->c_name }}">
                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="16" height="16">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
                     </svg>
@@ -623,32 +623,32 @@
                     </td>
                     <td>
                         <div class="product-info">
-                            <img src="{{ $product->image ? asset('storage/' . $product->image) : 'https://via.placeholder.com/60' }}" alt="{{ $product->name }}" class="product-image">
+                            <img src="{{ $product->p_image ? asset('storage/' . $product->p_image) : 'https://via.placeholder.com/60' }}" alt="{{ $product->p_name }}" class="product-image">
                         </div>
                     </td>
                     <td>
                         <div class="product-details">
-                            <h3>{{ $product->name }}</h3>
-                            <p>{{ Str::limit($product->description, 50) }}</p>
+                            <h3>{{ $product->p_name }}</h3>
+                            <p>{{ Str::limit($product->p_description, 50) }}</p>
                         </div>
                     </td>
                     <td>#{{ str_pad($product->id, 7, '0', STR_PAD_LEFT) }}</td>
-                    <td>{{ $product->stock }} items</td>
-                    <td>{{ $product->category->name ?? 'N/A' }}</td>
-                    <td>Rp. {{ number_format($product->price, 0, ',', '.') }}</td>
+                    <td>{{ $product->p_stock }} items</td>
+                    <td>{{ $product->category->c_name ?? 'N/A' }}</td>
+                    <td>Rp. {{ number_format($product->p_price, 0, ',', '.') }}</td>
                     <td>
-                        <span class="status-badge {{ $product->status == 'In Stock' ? 'in-stock' : ($product->status == 'Out of Stock' ? 'out-stock' : 'low-stock') }}">
-                            {{ $product->status }}
+                        <span class="status-badge {{ $product->p_status == 'In Stock' ? 'in-stock' : ($product->p_status == 'Out of Stock' ? 'out-stock' : 'low-stock') }}">
+                            {{ $product->p_status }}
                         </span>
                     </td>
                     <td>
                         <div class="action-buttons">
-                            <button class="icon-btn edit product-edit" data-id="{{ $product->id }}" data-name="{{ $product->name }}" data-description="{{ $product->description }}" data-price="{{ $product->price }}" data-stock="{{ $product->stock }}" data-category="{{ $product->category_id }}" data-image="{{ $product->image }}" data-serving="{{ $product->serving }}">
+                            <button class="icon-btn edit product-edit" data-id="{{ $product->id }}" data-name="{{ $product->p_name }}" data-description="{{ $product->p_description }}" data-price="{{ $product->p_price }}" data-stock="{{ $product->p_stock }}" data-category="{{ $product->category_id }}" data-image="{{ $product->p_image }}">
                                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="16" height="16">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
                                 </svg>
                             </button>
-                            <button class="icon-btn delete product-delete" data-id="{{ $product->id }}" data-name="{{ $product->name }}">
+                            <button class="icon-btn delete product-delete" data-id="{{ $product->id }}" data-name="{{ $product->p_name }}">
                                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="16" height="16">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
                                 </svg>
@@ -703,7 +703,7 @@
 
                 <div class="form-group">
                     <label for="categoryName">Category Name</label>
-                    <input type="text" id="categoryName" name="name" placeholder="Enter Category Name" required>
+                    <input type="text" id="categoryName" name="c_name" placeholder="Enter Category Name" required>
                 </div>
 
                 <div class="form-group">
@@ -717,7 +717,7 @@
 
                 <div class="form-group">
                     <label for="categoryDescription">Description</label>
-                    <textarea id="categoryDescription" name="description" placeholder="write your category description here"></textarea>
+                    <textarea id="categoryDescription" name="c_description" placeholder="write your category description here"></textarea>
                 </div>
 
                 <div class="modal-actions">
@@ -752,7 +752,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
                         </svg>
                         <p style="color: #9ca3af; margin-top: 0.5rem;">Click to upload product image</p>
-                        <input type="file" id="productImage" name="image" accept="image/*" style="display: none;">
+                        <input type="file" id="productImage" name="p_image" accept="image/*" style="display: none;">
                     </div>
                     <div class="image-preview-wrapper" id="imagePreviewWrapper" style="display: none;">
                         <img id="imagePreview" class="image-preview">
@@ -766,36 +766,31 @@
 
                 <div class="form-group">
                     <label for="productName">Product Name</label>
-                    <input type="text" id="productName" name="name" placeholder="Enter Product Name" required>
+                    <input type="text" id="productName" name="p_name" placeholder="Enter Product Name" required>
                 </div>
 
                 <div class="form-group">
                     <label for="productCategory">Category</label>
                     <select id="productCategory" name="category_id" required>
                         @foreach($categories ?? [] as $category)
-                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                        <option value="{{ $category->id }}">{{ $category->c_name }}</option>
                         @endforeach
                     </select>
                 </div>
 
                 <div class="form-group">
                     <label for="productDescription">Description</label>
-                    <textarea id="productDescription" name="description" placeholder="Enter product description"></textarea>
+                    <textarea id="productDescription" name="p_description" placeholder="Enter product description"></textarea>
                 </div>
 
                 <div class="form-group">
                     <label for="productPrice">Price (Rp.)</label>
-                    <input type="text" id="productPrice" name="price" placeholder="0" required>
+                    <input type="text" id="productPrice" name="p_price" placeholder="0" required>
                 </div>
 
                 <div class="form-group">
                     <label for="productStock">Stock Quantity</label>
-                    <input type="number" id="productStock" name="stock" placeholder="0" min="0" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="productServing">Serving (Optional)</label>
-                    <input type="text" id="productServing" name="serving" placeholder="e.g., 1-2 persons">
+                    <input type="number" id="productStock" name="p_stock" placeholder="0" min="0" required>
                 </div>
 
                 <div class="modal-actions">
@@ -1062,7 +1057,6 @@
             const stock = this.getAttribute('data-stock');
             const categoryId = this.getAttribute('data-category');
             const image = this.getAttribute('data-image');
-            const serving = this.getAttribute('data-serving');
 
             productModal.classList.add('active');
             document.getElementById('productModalTitle').textContent = 'Edit Menu Item';
@@ -1078,7 +1072,6 @@
             
             document.getElementById('productStock').value = stock;
             document.getElementById('productCategory').value = categoryId;
-            document.getElementById('productServing').value = serving;
             
             // Handle image preview
             if (image && image !== 'null') {

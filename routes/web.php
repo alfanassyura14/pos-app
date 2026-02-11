@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\OrderController;
 
@@ -27,9 +28,7 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 // Protected Routes
 Route::middleware('auth')->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     // Menu Management Routes
     Route::get('/menu', [MenuController::class, 'index'])->name('menu');

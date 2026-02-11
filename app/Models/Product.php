@@ -11,22 +11,17 @@ class Product extends Model
 
     protected $fillable = [
         'category_id',
-        'name',
-        'description',
-        'price',
-        'image',
-        'stock',
-        'status',
-        'serving',
-    ];
-
-    protected $casts = [
-        'price' => 'decimal:2',
+        'p_name',
+        'p_description',
+        'p_price',
+        'p_image',
+        'p_stock',
+        'p_status',
     ];
 
     public function category()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Category::class, 'category_id');
     }
 
     public function orderItems()

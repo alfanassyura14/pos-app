@@ -22,12 +22,6 @@ class SaleDetail extends Model
         'notes',
     ];
 
-    protected $casts = [
-        'price' => 'decimal:2',
-        'discount' => 'decimal:2',
-        'subtotal' => 'decimal:2',
-    ];
-
     public function sale()
     {
         return $this->belongsTo(Sale::class);
@@ -35,11 +29,11 @@ class SaleDetail extends Model
 
     public function product()
     {
-        return $this->belongsTo(Product::class);
+        return $this->belongsTo(Product::class, 'product_id');
     }
 
     public function category()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Category::class, 'category_id');
     }
 }

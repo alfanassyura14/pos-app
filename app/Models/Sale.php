@@ -15,22 +15,11 @@ class Sale extends Model
         'order_id',
         'customer_name',
         'table_number',
-        'sale_date',
         'amount',
         'subtotal',
         'tax',
         'discount',
-        'total_price',
         'payment_method',
-    ];
-
-    protected $casts = [
-        'sale_date' => 'date',
-        'amount' => 'decimal:2',
-        'subtotal' => 'decimal:2',
-        'tax' => 'decimal:2',
-        'discount' => 'decimal:2',
-        'total_price' => 'decimal:2',
     ];
 
     public function order()

@@ -26,10 +26,10 @@ class OrderController extends Controller
     public function create()
     {
         $categories = Category::with(['products' => function($query) {
-            $query->where('stock', '>', 0);
+            $query->where('p_stock', '>', 0);
         }])->get();
         
-        $products = Product::where('stock', '>', 0)->get();
+        $products = Product::where('p_stock', '>', 0)->get();
         
         return view('orders.create', compact('categories', 'products'));
     }
@@ -54,19 +54,19 @@ class OrderController extends Controller
             foreach ($request->items as $item) {
                 $product = Product::findOrFail($item['product_id']);
                 
-                if ($product->stock < $item['quantity']) {
+                if ($product->p_stock < $item['quantity']) {
                     return response()->json([
-                        'error' => "Insufficient stock for {$product->name}"
+                        'error' => "Insufficient stock for {$product->p_name}"
                     ], 422);
                 }
 
-                $itemSubtotal = $product->price * $item['quantity'];
+                $itemSubtotal = $product->p_price * $item['quantity'];
                 $subtotal += $itemSubtotal;
 
                 $items[] = [
                     'product' => $product,
                     'quantity' => $item['quantity'],
-                    'price' => $product->price,
+                    'price' => $product->p_price,
                     'subtotal' => $itemSubtotal,
                 ];
             }
@@ -87,15 +87,13 @@ class OrderController extends Controller
             $sale = Sale::create([
                 'user_id' => Auth::id(),
                 'sale_number' => $saleNumber,
-                'order_id' => null, // No order needed
+                'order_id' => null,
                 'customer_name' => $request->customer_name ?? $request->table_number ?? 'Walk-in Customer',
                 'table_number' => $request->table_number,
-                'sale_date' => now(),
                 'amount' => $total,
                 'subtotal' => $subtotal,
                 'tax' => $tax,
                 'discount' => $discount,
-                'total_price' => $total,
                 'payment_method' => $request->payment_method ?? 'cash',
             ]);
 
@@ -107,12 +105,12 @@ class OrderController extends Controller
                     'category_id' => $item['product']->category_id,
                     'quantity' => $item['quantity'],
                     'price' => $item['price'],
-                    'discount' => 0, // Per item discount can be added later
+                    'discount' => 0,
                     'subtotal' => $item['subtotal'],
                 ]);
 
                 // Update product stock
-                $item['product']->decrement('stock', $item['quantity']);
+                $item['product']->decrement('p_stock', $item['quantity']);
             }
 
             DB::commit();
@@ -198,7 +196,7 @@ class OrderController extends Controller
         
         // Restore stock for each item
         foreach ($order->orderItems as $item) {
-            $item->product->increment('stock', $item->quantity);
+            $item->product->increment('p_stock', $item->quantity);
         }
         
         // Delete order items

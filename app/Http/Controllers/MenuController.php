@@ -22,8 +22,8 @@ class MenuController extends Controller
     public function storeCategory(Request $request)
     {
         $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'description' => 'nullable|string',
+            'c_name' => 'required|string|max:255',
+            'c_description' => 'nullable|string',
             'icon' => 'nullable|string',
             'menu_type' => 'required|string',
         ]);
@@ -36,8 +36,8 @@ class MenuController extends Controller
     public function updateCategory(Request $request, Category $category)
     {
         $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'description' => 'nullable|string',
+            'c_name' => 'required|string|max:255',
+            'c_description' => 'nullable|string',
             'icon' => 'nullable|string',
             'menu_type' => 'required|string',
         ]);
@@ -58,26 +58,25 @@ class MenuController extends Controller
     {
         $validated = $request->validate([
             'category_id' => 'required|exists:categories,id',
-            'name' => 'required|string|max:255',
-            'description' => 'nullable|string',
-            'price' => 'required|numeric|min:0',
-            'stock' => 'required|integer|min:0',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'serving' => 'nullable|string',
+            'p_name' => 'required|string|max:255',
+            'p_description' => 'nullable|string',
+            'p_price' => 'required|numeric|min:0',
+            'p_stock' => 'required|integer|min:0',
+            'p_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('products', 'public');
-            $validated['image'] = $imagePath;
+        if ($request->hasFile('p_image')) {
+            $imagePath = $request->file('p_image')->store('products', 'public');
+            $validated['p_image'] = $imagePath;
         }
 
         // Determine status based on stock
-        if ($validated['stock'] == 0) {
-            $validated['status'] = 'Out of Stock';
-        } elseif ($validated['stock'] < 10) {
-            $validated['status'] = 'Low Stock';
+        if ($validated['p_stock'] == 0) {
+            $validated['p_status'] = 'Out of Stock';
+        } elseif ($validated['p_stock'] < 10) {
+            $validated['p_status'] = 'Low Stock';
         } else {
-            $validated['status'] = 'In Stock';
+            $validated['p_status'] = 'In Stock';
         }
 
         $product = Product::create($validated);
@@ -89,30 +88,29 @@ class MenuController extends Controller
     {
         $validated = $request->validate([
             'category_id' => 'required|exists:categories,id',
-            'name' => 'required|string|max:255',
-            'description' => 'nullable|string',
-            'price' => 'required|numeric|min:0',
-            'stock' => 'required|integer|min:0',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'serving' => 'nullable|string',
+            'p_name' => 'required|string|max:255',
+            'p_description' => 'nullable|string',
+            'p_price' => 'required|numeric|min:0',
+            'p_stock' => 'required|integer|min:0',
+            'p_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        if ($request->hasFile('image')) {
+        if ($request->hasFile('p_image')) {
             // Delete old image if exists
-            if ($product->image) {
-                Storage::disk('public')->delete($product->image);
+            if ($product->p_image) {
+                Storage::disk('public')->delete($product->p_image);
             }
-            $imagePath = $request->file('image')->store('products', 'public');
-            $validated['image'] = $imagePath;
+            $imagePath = $request->file('p_image')->store('products', 'public');
+            $validated['p_image'] = $imagePath;
         }
 
         // Determine status based on stock
-        if ($validated['stock'] == 0) {
-            $validated['status'] = 'Out of Stock';
-        } elseif ($validated['stock'] < 10) {
-            $validated['status'] = 'Low Stock';
+        if ($validated['p_stock'] == 0) {
+            $validated['p_status'] = 'Out of Stock';
+        } elseif ($validated['p_stock'] < 10) {
+            $validated['p_status'] = 'Low Stock';
         } else {
-            $validated['status'] = 'In Stock';
+            $validated['p_status'] = 'In Stock';
         }
 
         $product->update($validated);
@@ -122,8 +120,8 @@ class MenuController extends Controller
 
     public function deleteProduct(Product $product)
     {
-        if ($product->image) {
-            Storage::disk('public')->delete($product->image);
+        if ($product->p_image) {
+            Storage::disk('public')->delete($product->p_image);
         }
         $product->delete();
         return redirect()->back()->with('success', 'Product deleted successfully!');
