@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\ReportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,5 +54,9 @@ Route::middleware('auth')->group(function () {
     Route::put('/orders/{id}/status', [OrderController::class, 'updateStatus'])->name('orders.updateStatus');
     Route::post('/orders/{id}/pay', [OrderController::class, 'payBill'])->name('orders.pay');
     Route::delete('/orders/{id}', [OrderController::class, 'destroy'])->name('orders.destroy');
+
+    // Report Routes
+    Route::get('/reports', [ReportController::class, 'index'])->name('reports');
+    Route::get('/reports/sales', [ReportController::class, 'sales'])->name('reports.sales');
 });
 

@@ -95,7 +95,7 @@ class DashboardController extends Controller
             ->whereBetween('sales.created_at', [$start, $end])
             ->groupBy('sales_details.product_id', 'products.id', 'products.p_name', 'products.p_image', 'categories.c_name')
             ->orderByDesc('total_quantity')
-            ->limit(10)
+            ->limit(5)
             ->get();
 
         // Sales Chart Data - Dynamic based on date range

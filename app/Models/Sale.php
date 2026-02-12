@@ -17,8 +17,10 @@ class Sale extends Model
         'table_number',
         'amount',
         'subtotal',
+        'subtotal_amount',
         'tax',
         'discount',
+        'discount_type',
         'payment_method',
     ];
 

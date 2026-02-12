@@ -255,13 +255,18 @@
                 </div>
                 @if($sale->discount > 0)
                 <div class="summary-row">
-                    <span>Discount</span>
+                    <span>
+                        Discount
+                        @if($sale->discount_type === 'percent')
+                            ({{ number_format(($sale->discount / $sale->subtotal) * 100, 1) }}%)
+                        @endif
+                    </span>
                     <span>-Rp {{ number_format($sale->discount, 0, ',', '.') }}</span>
                 </div>
                 @endif
                 <div class="summary-row total">
                     <span>Total Amount</span>
-                    <span>Rp {{ number_format($sale->subtotal, 0, ',', '.') }}</span>
+                    <span>Rp {{ number_format($sale->subtotal_amount, 0, ',', '.') }}</span>
                 </div>
             </div>
         </div>

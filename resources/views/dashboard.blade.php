@@ -362,7 +362,7 @@ display: block;
         <div class="metric-header">
             <div class="metric-info">
                 <h3>Daily Sales</h3>
-                <div class="metric-value">Rp {{ number_format($dailySales, 0, ',', '.') }}</div>
+                <div class="metric-value" data-value="{{ $dailySales }}" data-type="currency">Rp 0</div>
                 <div class="metric-date">{{ \Carbon\Carbon::today()->format('d M Y') }}</div>
             </div>
             <div class="metric-icon">
@@ -378,7 +378,7 @@ display: block;
         <div class="metric-header">
             <div class="metric-info">
                 <h3>Monthly Sales</h3>
-                <div class="metric-value">Rp {{ number_format($monthlySales, 0, ',', '.') }}</div>
+                <div class="metric-value" data-value="{{ $monthlySales }}" data-type="currency">Rp 0</div>
                 <div class="metric-date">{{ \Carbon\Carbon::now()->format('F Y') }}</div>
             </div>
             <div class="metric-icon">
@@ -394,7 +394,7 @@ display: block;
         <div class="metric-header">
             <div class="metric-info">
                 <h3>Total Orders</h3>
-                <div class="metric-value">{{ number_format($filteredOrders) }}</div>
+                <div class="metric-value" data-value="{{ $filteredOrders }}" data-type="number">0</div>
                 <div class="metric-date">{{ \Carbon\Carbon::parse($startDate)->format('d M') }} - {{ \Carbon\Carbon::parse($endDate)->format('d M Y') }}</div>
             </div>
             <div class="metric-icon">
@@ -410,7 +410,7 @@ display: block;
         <div class="metric-header">
             <div class="metric-info">
                 <h3>Average Order Value</h3>
-                <div class="metric-value">Rp {{ number_format($averageOrderValue, 0, ',', '.') }}</div>
+                <div class="metric-value" data-value="{{ $averageOrderValue }}" data-type="currency">Rp 0</div>
                 <div class="metric-date">{{ \Carbon\Carbon::parse($startDate)->format('d M') }} - {{ \Carbon\Carbon::parse($endDate)->format('d M Y') }}</div>
             </div>
             <div class="metric-icon">
@@ -568,5 +568,41 @@ display: block;
             window.location.href = '{{ route("dashboard") }}?filter=' + value;
         }
     }
+
+    // Animated Counter Function
+    function animateCounter(element, target, duration = 1500) {
+        const start = 0;
+        const increment = target / (duration / 16); // 60 FPS
+        const type = element.getAttribute('data-type');
+        let current = 0;
+        
+        const timer = setInterval(() => {
+            current += increment;
+            
+            if (current >= target) {
+                current = target;
+                clearInterval(timer);
+            }
+            
+            // Format based on type
+            if (type === 'currency') {
+                element.textContent = 'Rp ' + Math.round(current).toLocaleString('id-ID');
+            } else {
+                element.textContent = Math.round(current).toLocaleString('id-ID');
+            }
+        }, 16);
+    }
+
+    // Initialize counters on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        const metricValues = document.querySelectorAll('.metric-value[data-value]');
+        
+        metricValues.forEach(element => {
+            const targetValue = parseFloat(element.getAttribute('data-value'));
+            if (!isNaN(targetValue)) {
+                animateCounter(element, targetValue, 1500);
+            }
+        });
+    });
 </script>
 @endpush

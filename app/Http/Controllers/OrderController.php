@@ -37,11 +37,13 @@ class OrderController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'customer_name' => 'nullable|string|max:255',
             'table_number' => 'nullable|string',
             'items' => 'required|array|min:1',
             'items.*.product_id' => 'required|exists:products,id',
             'items.*.quantity' => 'required|integer|min:1',
             'discount' => 'nullable|numeric|min:0',
+            'discount_type' => 'nullable|in:amount,percent',
             'voucher_code' => 'nullable|string',
         ]);
 
@@ -92,8 +94,10 @@ class OrderController extends Controller
                 'table_number' => $request->table_number,
                 'amount' => $total,
                 'subtotal' => $subtotal,
+                'subtotal_amount' => $request->subtotal_amount ?? ($subtotal + $tax - $discount),
                 'tax' => $tax,
                 'discount' => $discount,
+                'discount_type' => $request->discount_type ?? 'amount',
                 'payment_method' => $request->payment_method ?? 'cash',
             ]);
 

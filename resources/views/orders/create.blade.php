@@ -192,6 +192,8 @@
         justify-content: center;
         font-size: 2rem;
         color: #ec4899;
+        overflow: hidden;
+        position: relative;
     }
 
     .product-info {
@@ -224,16 +226,19 @@
         padding: 0.25rem 0.5rem;
         border-radius: 6px;
         font-weight: 500;
+        z-index: 10;
+        backdrop-filter: blur(8px);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     }
 
     .stock-available {
-        background: rgba(16, 185, 129, 0.2);
-        color: #10b981;
+        background: rgba(16, 185, 129, 0.9);
+        color: white;
     }
 
     .stock-low {
-        background: rgba(245, 158, 11, 0.2);
-        color: #f59e0b;
+        background: rgba(245, 158, 11, 0.9);
+        color: white;
     }
 
     /* Right Panel - Checkout */
@@ -248,9 +253,11 @@
         gap: 1.5rem;
         height: calc(100vh - 140px);
         overflow-y: auto;
+        overflow-x: hidden;
         position: sticky;
         top: 20px;
         align-self: start;
+        box-sizing: border-box;
     }
 
     .checkout-panel::-webkit-scrollbar {
@@ -273,8 +280,8 @@
 
     .checkout-header {
         display: flex;
-        justify-content: space-between;
-        align-items: center;
+        flex-direction: column;
+        gap: 0.75rem;
     }
 
     .checkout-header h3 {
@@ -282,14 +289,22 @@
         font-weight: bold;
     }
 
+    .customer-info-group {
+        display: flex;
+        gap: 0.5rem;
+        width: 100%;
+    }
+
     .table-input {
+        flex: 1;
+        min-width: 0;
         padding: 0.5rem 0.75rem;
         background: rgba(55, 65, 81, 0.3);
         border: 1px solid rgba(107, 114, 128, 0.3);
         border-radius: 8px;
         color: white;
         font-size: 0.875rem;
-        width: 150px;
+        box-sizing: border-box;
     }
 
     .table-input:focus {
@@ -304,8 +319,10 @@
         flex-direction: column;
         gap: 0.75rem;
         overflow-y: auto;
+        overflow-x: hidden;
         min-height: 200px;
         max-height: 300px;
+        width: 100%;
     }
 
     .cart-items::-webkit-scrollbar {
@@ -332,11 +349,14 @@
         padding: 0.75rem;
         background: rgba(55, 65, 81, 0.3);
         border-radius: 8px;
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .cart-item-icon {
         width: 48px;
         height: 48px;
+        flex-shrink: 0;
         border-radius: 6px;
         background: linear-gradient(135deg, rgba(236, 72, 153, 0.2) 0%, rgba(139, 92, 246, 0.2) 100%);
         display: flex;
@@ -348,6 +368,7 @@
 
     .cart-item-info {
         flex: 1;
+        min-width: 0;
         display: flex;
         flex-direction: column;
         gap: 0.25rem;
@@ -420,21 +441,53 @@
         display: flex;
         flex-direction: column;
         gap: 0.75rem;
+        width: 100%;
+    }
+
+    .discount-type-group {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        padding: 0.5rem 0;
+    }
+
+    .discount-type-option {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        cursor: pointer;
+    }
+
+    .discount-type-option input[type="radio"] {
+        width: 18px;
+        height: 18px;
+        cursor: pointer;
+        accent-color: #ec4899;
+    }
+
+    .discount-type-option label {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 0.875rem;
+        cursor: pointer;
+        user-select: none;
     }
 
     .discount-input-group {
         display: flex;
         gap: 0.5rem;
+        width: 100%;
     }
 
     .discount-input {
         flex: 1;
+        min-width: 0;
         padding: 0.75rem;
         background: rgba(55, 65, 81, 0.3);
         border: 1px solid rgba(107, 114, 128, 0.3);
         border-radius: 8px;
         color: white;
         font-size: 0.875rem;
+        box-sizing: border-box;
     }
 
     .discount-input:focus {
@@ -452,6 +505,7 @@
         font-weight: 500;
         cursor: pointer;
         transition: all 0.3s;
+        box-sizing: border-box;
     }
 
     .apply-btn:hover {
@@ -465,6 +519,7 @@
         gap: 0.75rem;
         padding-top: 1rem;
         border-top: 1px solid rgba(107, 114, 128, 0.3);
+        width: 100%;
     }
 
     .summary-row {
@@ -485,10 +540,12 @@
     .payment-methods {
         display: flex;
         gap: 0.5rem;
+        width: 100%;
     }
 
     .payment-method {
         flex: 1;
+        min-width: 0;
         padding: 0.75rem;
         background: rgba(55, 65, 81, 0.3);
         border: 2px solid rgba(107, 114, 128, 0.3);
@@ -498,6 +555,7 @@
         cursor: pointer;
         text-align: center;
         transition: all 0.3s;
+        box-sizing: border-box;
     }
 
     .payment-method.active {
@@ -658,6 +716,7 @@
             transform: rotate(360deg);
         }
     }
+</style>
 @endpush
 
 @section('content')
@@ -697,15 +756,21 @@
                 @foreach($products as $product)
                 <div class="product-card" 
                      data-id="{{ $product->id }}"
+                     data-stock="{{ $product->p_stock }}"
                      data-name="{{ $product->p_name }}"
                      data-price="{{ $product->p_price }}"
                      data-category="{{ $product->category_id }}"
-                     data-icon="{{ $product->category->icon ?? '🍽️' }}"
-                     data-stock="{{ $product->p_stock }}">
+                     data-icon="{{ $product->p_image ? asset('storage/' . $product->p_image) : '🍽️' }}">
                     <span class="product-stock {{ $product->p_stock <= 5 ? 'stock-low' : 'stock-available' }}">
                         {{ $product->p_stock }} left
                     </span>
-                    <div class="product-image">{{ $product->category->icon ?? '🍽️' }}</div>
+                    <div class="product-image">
+                        @if($product->p_image)
+                            <img src="{{ asset('storage/' . $product->p_image) }}" alt="{{ $product->p_name }}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+                        @else
+                            <span style="font-size: 2rem;">🍽️</span>
+                        @endif
+                    </div>
                     <div class="product-info">
                         <div class="product-name">{{ $product->p_name }}</div>
                         <div class="product-category">{{ $product->category->c_name ?? 'Uncategorized' }}</div>
@@ -721,7 +786,10 @@
     <div class="checkout-panel">
         <div class="checkout-header">
             <h3 id="tableDisplay">New Order</h3>
-            <input type="text" class="table-input" id="tableNumber" placeholder="Table No.">
+            <div class="customer-info-group">
+                <input type="text" class="table-input" id="customerName" placeholder="Customer Name">
+                <input type="text" class="table-input" id="tableNumber" placeholder="Table No.">
+            </div>
         </div>
 
         <!-- Cart Items -->
@@ -740,8 +808,21 @@
                 <input type="text" class="discount-input" id="voucherCode" placeholder="Voucher code">
                 <button class="apply-btn" onclick="applyVoucher()">Apply</button>
             </div>
+            
+            <div class="discount-type-group">
+                <span style="color: rgba(255, 255, 255, 0.7); font-size: 0.875rem;">Discount Type:</span>
+                <div class="discount-type-option">
+                    <input type="radio" id="discountTypeAmount" name="discountType" value="amount" checked onchange="updateDiscountPlaceholder()">
+                    <label for="discountTypeAmount">Amount (Rp)</label>
+                </div>
+                <div class="discount-type-option">
+                    <input type="radio" id="discountTypePercent" name="discountType" value="percent" onchange="updateDiscountPlaceholder()">
+                    <label for="discountTypePercent">Percent (%)</label>
+                </div>
+            </div>
+            
             <div class="discount-input-group">
-                <input type="number" class="discount-input" id="discountAmount" placeholder="Discount amount" min="0" step="0.01">
+                <input type="number" class="discount-input" id="discountAmount" placeholder="Discount amount (Rp)" min="0" step="0.01">
                 <button class="apply-btn" onclick="applyDiscount()">Apply</button>
             </div>
         </div>
@@ -946,7 +1027,11 @@
         } else {
             cartItemsContainer.innerHTML = cart.map(item => `
                 <div class="cart-item">
-                    <div class="cart-item-icon">${item.icon}</div>
+                    <div class="cart-item-icon">
+                        ${item.icon.startsWith('http') || item.icon.includes('storage/') 
+                            ? `<img src="${item.icon}" alt="${item.name}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 6px;">` 
+                            : item.icon}
+                    </div>
                     <div class="cart-item-info">
                         <div class="cart-item-name">${item.name}</div>
                         <div class="cart-item-qty">
@@ -1018,9 +1103,40 @@
     }
 
     function applyDiscount() {
-        const discountAmount = parseFloat(document.getElementById('discountAmount').value) || 0;
-        discount = discountAmount;
+        const discountInput = parseFloat(document.getElementById('discountAmount').value) || 0;
+        const discountType = document.querySelector('input[name="discountType"]:checked').value;
+        
+        // Calculate discount based on type
+        const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+        
+        if (discountType === 'percent') {
+            // Calculate percent discount (max 100%)
+            const percent = Math.min(discountInput, 100);
+            discount = subtotal * (percent / 100);
+        } else {
+            // Direct amount discount (max subtotal)
+            discount = Math.min(discountInput, subtotal);
+        }
+        
         updateSummary();
+    }
+    
+    function updateDiscountPlaceholder() {
+        const discountType = document.querySelector('input[name="discountType"]:checked').value;
+        const discountInput = document.getElementById('discountAmount');
+        
+        if (discountType === 'percent') {
+            discountInput.placeholder = 'Discount percent (%)';
+            discountInput.max = '100';
+        } else {
+            discountInput.placeholder = 'Discount amount (Rp)';
+            discountInput.removeAttribute('max');
+        }
+        
+        // Reapply discount if there's a value
+        if (discountInput.value) {
+            applyDiscount();
+        }
     }
 
     // Payment method selection
@@ -1047,15 +1163,27 @@
             return;
         }
 
+        const customerName = document.getElementById('customerName').value;
         const tableNumber = document.getElementById('tableNumber').value;
         
+        // Calculate amounts
+        const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+        const tax = subtotal * 0.11;
+        const subtotalAmount = subtotal + tax - discount;
+        
+        // Get discount type
+        const discountType = document.querySelector('input[name="discountType"]:checked').value;
+        
         const orderData = {
+            customer_name: customerName || null,
             table_number: tableNumber || null,
             items: cart.map(item => ({
                 product_id: item.id,
                 quantity: item.quantity
             })),
             discount: discount,
+            discount_type: discountType,
+            subtotal_amount: subtotalAmount,
             payment_method: paymentMethod,
             voucher_code: document.getElementById('voucherCode').value || null
         };
@@ -1093,6 +1221,7 @@
                 setTimeout(() => {
                     cart = [];
                     discount = 0;
+                    document.getElementById('customerName').value = '';
                     document.getElementById('tableNumber').value = '';
                     document.getElementById('voucherCode').value = '';
                     document.getElementById('discountAmount').value = '';
