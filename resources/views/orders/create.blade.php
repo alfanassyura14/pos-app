@@ -44,17 +44,18 @@
     }
 
     .menu-panel::-webkit-scrollbar-track {
-        background: rgba(45, 55, 72, 0.3);
+        background: rgba(26, 26, 26, 0.5);
         border-radius: 3px;
     }
 
     .menu-panel::-webkit-scrollbar-thumb {
-        background: rgba(236, 72, 153, 0.5);
+        background: rgba(168, 85, 247, 0.5);
         border-radius: 3px;
     }
 
     .menu-panel::-webkit-scrollbar-thumb:hover {
-        background: rgba(236, 72, 153, 0.7);
+        background: rgba(168, 85, 247, 0.7);
+        border-radius: 3px;
     }
 
     /* Search Bar */
@@ -65,8 +66,8 @@
     .search-input {
         width: 100%;
         padding: 0.875rem 1rem 0.875rem 3rem;
-        background: rgba(45, 55, 72, 0.5);
-        border: 1px solid rgba(107, 114, 128, 0.3);
+        background: rgba(26, 26, 26, 0.7);
+        border: 1px solid rgba(60, 60, 60, 0.5);
         border-radius: 12px;
         color: white;
         font-size: 0.875rem;
@@ -75,8 +76,8 @@
 
     .search-input:focus {
         outline: none;
-        border-color: #ec4899;
-        background: rgba(45, 55, 72, 0.7);
+        border-color: #a855f7;
+        background: rgba(26, 26, 26, 0.9);
     }
 
     .search-input::placeholder {
@@ -101,9 +102,9 @@
     }
 
     .category-card {
-        background: rgba(45, 55, 72, 0.5);
+        background: rgba(26, 26, 26, 0.7);
         backdrop-filter: blur(10px);
-        border: 2px solid rgba(107, 114, 128, 0.3);
+        border: 2px solid rgba(60, 60, 60, 0.5);
         border-radius: 12px;
         padding: 1rem;
         cursor: pointer;
@@ -116,27 +117,34 @@
     }
 
     .category-card:hover {
-        border-color: #ec4899;
-        background: rgba(45, 55, 72, 0.7);
+        border-color: #a855f7;
+        background: rgba(26, 26, 26, 0.9);
         transform: translateY(-2px);
     }
 
     .category-card.active {
-        border-color: #ec4899;
-        background: linear-gradient(135deg, rgba(236, 72, 153, 0.2) 0%, rgba(139, 92, 246, 0.2) 100%);
-        box-shadow: 0 4px 15px rgba(236, 72, 153, 0.4);
+        border-color: #a855f7;
+        background: linear-gradient(135deg, rgba(168, 85, 247, 0.2) 0%, rgba(192, 132, 252, 0.2) 100%);
+        box-shadow: 0 4px 15px rgba(168, 85, 247, 0.5);
     }
 
     .category-icon {
         width: 48px;
         height: 48px;
         border-radius: 10px;
-        background: rgba(236, 72, 153, 0.1);
+        background: rgba(168, 85, 247, 0.15);
         display: flex;
         align-items: center;
         justify-content: center;
-        color: #ec4899;
+        color: #a855f7;
         font-size: 1.5rem;
+    }
+
+    .category-icon svg {
+        width: 28px;
+        height: 28px;
+        stroke: currentColor;
+        fill: none;
     }
 
     .category-name {
@@ -163,9 +171,9 @@
     }
 
     .product-card {
-        background: rgba(45, 55, 72, 0.5);
+        background: rgba(26, 26, 26, 0.7);
         backdrop-filter: blur(10px);
-        border: 1px solid rgba(107, 114, 128, 0.3);
+        border: 1px solid rgba(60, 60, 60, 0.5);
         border-radius: 12px;
         padding: 1rem;
         cursor: pointer;
@@ -177,21 +185,21 @@
     }
 
     .product-card:hover {
-        border-color: #ec4899;
+        border-color: #a855f7;
         transform: translateY(-2px);
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
     }
 
     .product-image {
         width: 100%;
         height: 120px;
         border-radius: 8px;
-        background: linear-gradient(135deg, rgba(236, 72, 153, 0.2) 0%, rgba(139, 92, 246, 0.2) 100%);
+        background: linear-gradient(135deg, rgba(168, 85, 247, 0.2) 0%, rgba(192, 132, 252, 0.2) 100%);
         display: flex;
         align-items: center;
         justify-content: center;
         font-size: 2rem;
-        color: #ec4899;
+        color: #a855f7;
         overflow: hidden;
         position: relative;
     }
@@ -215,7 +223,7 @@
     .product-price {
         font-size: 1rem;
         font-weight: bold;
-        color: #ec4899;
+        color: #a855f7;
     }
 
     .product-stock {
@@ -243,9 +251,9 @@
 
     /* Right Panel - Checkout */
     .checkout-panel {
-        background: rgba(45, 55, 72, 0.5);
+        background: rgba(26, 26, 26, 0.7);
         backdrop-filter: blur(10px);
-        border: 1px solid rgba(107, 114, 128, 0.3);
+        border: 1px solid rgba(60, 60, 60, 0.5);
         border-radius: 12px;
         padding: 1.5rem;
         display: flex;
@@ -265,17 +273,17 @@
     }
 
     .checkout-panel::-webkit-scrollbar-track {
-        background: rgba(45, 55, 72, 0.3);
+        background: rgba(26, 26, 26, 0.5);
         border-radius: 3px;
     }
 
     .checkout-panel::-webkit-scrollbar-thumb {
-        background: rgba(236, 72, 153, 0.5);
+        background: rgba(168, 85, 247, 0.5);
         border-radius: 3px;
     }
 
     .checkout-panel::-webkit-scrollbar-thumb:hover {
-        background: rgba(236, 72, 153, 0.7);
+        background: rgba(168, 85, 247, 0.7);
     }
 
     .checkout-header {
@@ -299,8 +307,8 @@
         flex: 1;
         min-width: 0;
         padding: 0.5rem 0.75rem;
-        background: rgba(55, 65, 81, 0.3);
-        border: 1px solid rgba(107, 114, 128, 0.3);
+        background: rgba(20, 20, 20, 0.7);
+        border: 1px solid rgba(60, 60, 60, 0.5);
         border-radius: 8px;
         color: white;
         font-size: 0.875rem;
@@ -309,7 +317,7 @@
 
     .table-input:focus {
         outline: none;
-        border-color: #ec4899;
+        border-color: #a855f7;
     }
 
     /* Cart Items */
@@ -330,24 +338,24 @@
     }
 
     .cart-items::-webkit-scrollbar-track {
-        background: rgba(45, 55, 72, 0.3);
+        background: rgba(26, 26, 26, 0.5);
         border-radius: 3px;
     }
 
     .cart-items::-webkit-scrollbar-thumb {
-        background: rgba(236, 72, 153, 0.5);
+        background: rgba(168, 85, 247, 0.5);
         border-radius: 3px;
     }
 
     .cart-items::-webkit-scrollbar-thumb:hover {
-        background: rgba(236, 72, 153, 0.7);
+        background: rgba(168, 85, 247, 0.7);
     }
 
     .cart-item {
         display: flex;
         gap: 0.75rem;
         padding: 0.75rem;
-        background: rgba(55, 65, 81, 0.3);
+        background: rgba(20, 20, 20, 0.7);
         border-radius: 8px;
         width: 100%;
         box-sizing: border-box;
@@ -358,11 +366,11 @@
         height: 48px;
         flex-shrink: 0;
         border-radius: 6px;
-        background: linear-gradient(135deg, rgba(236, 72, 153, 0.2) 0%, rgba(139, 92, 246, 0.2) 100%);
+        background: linear-gradient(135deg, rgba(168, 85, 247, 0.2) 0%, rgba(192, 132, 252, 0.2) 100%);
         display: flex;
         align-items: center;
         justify-content: center;
-        color: #ec4899;
+        color: #a855f7;
         font-size: 1.25rem;
     }
 
@@ -389,7 +397,7 @@
         width: 24px;
         height: 24px;
         border-radius: 4px;
-        background: rgba(107, 114, 128, 0.3);
+        background: rgba(60, 60, 60, 0.5);
         border: none;
         color: white;
         cursor: pointer;
@@ -401,7 +409,7 @@
     }
 
     .qty-btn:hover {
-        background: rgba(107, 114, 128, 0.5);
+        background: rgba(80, 80, 80, 0.6);
     }
 
     .qty-display {
@@ -413,7 +421,7 @@
     .cart-item-price {
         font-size: 0.875rem;
         font-weight: bold;
-        color: #ec4899;
+        color: #a855f7;
         text-align: right;
     }
 
@@ -462,7 +470,7 @@
         width: 18px;
         height: 18px;
         cursor: pointer;
-        accent-color: #ec4899;
+        accent-color: #a855f7;
     }
 
     .discount-type-option label {
@@ -482,8 +490,8 @@
         flex: 1;
         min-width: 0;
         padding: 0.75rem;
-        background: rgba(55, 65, 81, 0.3);
-        border: 1px solid rgba(107, 114, 128, 0.3);
+        background: rgba(20, 20, 20, 0.7);
+        border: 1px solid rgba(60, 60, 60, 0.5);
         border-radius: 8px;
         color: white;
         font-size: 0.875rem;
@@ -492,15 +500,15 @@
 
     .discount-input:focus {
         outline: none;
-        border-color: #ec4899;
+        border-color: #a855f7;
     }
 
     .apply-btn {
         padding: 0.75rem 1.25rem;
-        background: rgba(236, 72, 153, 0.2);
-        border: 1px solid #ec4899;
+        background: rgba(168, 85, 247, 0.2);
+        border: 1px solid #a855f7;
         border-radius: 8px;
-        color: #ec4899;
+        color: #a855f7;
         font-size: 0.875rem;
         font-weight: 500;
         cursor: pointer;
@@ -509,7 +517,7 @@
     }
 
     .apply-btn:hover {
-        background: rgba(236, 72, 153, 0.3);
+        background: rgba(168, 85, 247, 0.3);
     }
 
     /* Summary */
@@ -518,7 +526,7 @@
         flex-direction: column;
         gap: 0.75rem;
         padding-top: 1rem;
-        border-top: 1px solid rgba(107, 114, 128, 0.3);
+        border-top: 1px solid rgba(60, 60, 60, 0.5);
         width: 100%;
     }
 
@@ -531,9 +539,9 @@
     .summary-row.total {
         font-size: 1.125rem;
         font-weight: bold;
-        color: #ec4899;
+        color: #a855f7;
         padding-top: 0.75rem;
-        border-top: 1px solid rgba(107, 114, 128, 0.3);
+        border-top: 1px solid rgba(60, 60, 60, 0.5);
     }
 
     /* Payment Method */
@@ -547,8 +555,8 @@
         flex: 1;
         min-width: 0;
         padding: 0.75rem;
-        background: rgba(55, 65, 81, 0.3);
-        border: 2px solid rgba(107, 114, 128, 0.3);
+        background: rgba(20, 20, 20, 0.7);
+        border: 2px solid rgba(60, 60, 60, 0.5);
         border-radius: 8px;
         color: #9ca3af;
         font-size: 0.875rem;
@@ -559,16 +567,16 @@
     }
 
     .payment-method.active {
-        border-color: #ec4899;
+        border-color: #a855f7;
         color: white;
-        background: rgba(236, 72, 153, 0.2);
+        background: rgba(168, 85, 247, 0.2);
     }
 
     /* Checkout Button */
     .checkout-btn {
         width: 100%;
         padding: 1rem;
-        background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%);
+        background: linear-gradient(135deg, #a855f7 0%, #c084fc 100%);
         border: none;
         border-radius: 12px;
         color: white;
@@ -584,7 +592,7 @@
 
     .checkout-btn:hover {
         transform: translateY(-2px);
-        box-shadow: 0 4px 15px rgba(236, 72, 153, 0.5);
+        box-shadow: 0 4px 15px rgba(168, 85, 247, 0.6);
     }
 
     .checkout-btn:disabled {
@@ -597,7 +605,7 @@
     .qr-section {
         text-align: center;
         padding: 1rem;
-        background: rgba(55, 65, 81, 0.3);
+        background: rgba(20, 20, 20, 0.7);
         border-radius: 8px;
     }
 
@@ -735,13 +743,67 @@
         <div>
             <div class="categories-grid">
                 <div class="category-card active" data-category="all">
-                    <div class="category-icon">🍽️</div>
+                    <div class="category-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
+                        </svg>
+                    </div>
                     <div class="category-name">All</div>
                     <div class="category-count">{{ $products->count() }} items</div>
                 </div>
                 @foreach($categories as $category)
                 <div class="category-card" data-category="{{ $category->id }}">
-                    <div class="category-icon">{{ $category->icon ?? '📦' }}</div>
+                    <div class="category-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            @php
+                                $icon = $category->icon ?? '📦';
+                                $svgPath = '';
+                                
+                                // Mapping emoji ke SVG paths
+                                switch($icon) {
+                                    case '🍕': // Pizza
+                                        $svgPath = '<circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 0 0 20V2z"/><circle cx="8" cy="8" r="1"/><circle cx="8" cy="14" r="1"/>';
+                                        break;
+                                    case '🍔': // Burger
+                                        $svgPath = '<path d="M3 11h18M3 11c0-1.1.9-2 2-2h14c1.1 0 2 .9 2 2M3 11v2c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-2M4 9h16M6 15h12"/><circle cx="8" cy="11" r="1"/><circle cx="16" cy="11" r="1"/>';
+                                        break;
+                                    case '🍗': // Chicken
+                                        $svgPath = '<path d="M12 2c-3 0-5 2-5 5v3c0 2 1 3 2 4l-2 8h10l-2-8c1-1 2-2 2-4V7c0-3-2-5-5-5z"/><path d="M9 7h6"/>';
+                                        break;
+                                    case '🎂': // Cake
+                                        $svgPath = '<path d="M20 21H4a1 1 0 0 1-1-1v-6a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1z"/><path d="M3 14h18M6 14V7M12 14V7M18 14V7M7 3v2M12 3v2M17 3v2"/>';
+                                        break;
+                                    case '🥤': // Drink
+                                        $svgPath = '<path d="M6 2h12l-1 18a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2L6 2z"/><path d="M6 7h12"/><path d="M10 3l1 4M14 3l-1 4"/>';
+                                        break;
+                                    case '🍤': // Shrimp
+                                        $svgPath = '<path d="M20 12c0 2-4 4-8 4s-8-2-8-4 4-4 8-4 8 2 8 4z"/><path d="M12 16c-2 0-4-1-4-2M12 8c-2 0-4 1-4 2M16 10c0 .5-.5 1-1.5 1s-1.5-.5-1.5-1"/>';
+                                        break;
+                                    case '🍜': // Noodle/Ramen
+                                        $svgPath = '<circle cx="12" cy="14" r="8"/><path d="M8 10v4M12 10v4M16 10v4M8 18h8"/><path d="M6 14c0-2 1-4 3-5M18 14c0-2-1-4-3-5"/>';
+                                        break;
+                                    case '🍝': // Pasta
+                                        $svgPath = '<path d="M20 12H4M8 8v8M12 8v8M16 8v8"/><path d="M4 12c0 2 1 4 3 5M20 12c0 2-1 4-3 5M7 17h10"/>';
+                                        break;
+                                    case '🍛': // Curry/Rice
+                                        $svgPath = '<rect x="4" y="10" width="16" height="10" rx="2"/><path d="M4 14h16M8 10V8c0-1 .5-2 1.5-2s1.5 1 1.5 2v2M12 10V8c0-1 .5-2 1.5-2s1.5 1 1.5 2v2"/>';
+                                        break;
+                                    case '🍱': // Bento
+                                        $svgPath = '<rect x="3" y="6" width="18" height="14" rx="2"/><path d="M3 12h18M12 6v14M6 9v6M18 9v6"/>';
+                                        break;
+                                    case '🍣': // Sushi
+                                        $svgPath = '<ellipse cx="12" cy="12" rx="9" ry="6"/><path d="M3 12h18"/><circle cx="8" cy="9" r="1"/><circle cx="16" cy="9" r="1"/>';
+                                        break;
+                                    case '🥗': // Salad
+                                        $svgPath = '<path d="M3 18h18c0-3-4-5-9-5s-9 2-9 5z"/><circle cx="8" cy="10" r="2"/><circle cx="16" cy="10" r="2"/><circle cx="12" cy="7" r="2"/><path d="M12 18v3"/>';
+                                        break;
+                                    default: // Default box icon
+                                        $svgPath = '<path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/>';
+                                }
+                            @endphp
+                            {!! $svgPath !!}
+                        </svg>
+                    </div>
                     <div class="category-name">{{ $category->c_name }}</div>
                     <div class="category-count">{{ $category->products->count() }} items</div>
                 </div>

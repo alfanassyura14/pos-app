@@ -24,20 +24,55 @@
 
     /* Date Range Filter - Same style as Dashboard */
     .date-range-filter {
-        background: rgba(45, 55, 72, 0.5);
+        background: rgba(26, 26, 26, 0.7);
         backdrop-filter: blur(10px);
         border-radius: 1rem;
         padding: 1.5rem;
         margin-bottom: 2rem;
-        border: 1px solid rgba(107, 114, 128, 0.3);
+        border: 1px solid rgba(60, 60, 60, 0.5);
+    }
+
+    .filter-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .filter-header-left {
+        flex: 1;
+    }
+
+    .export-btn {
+        padding: 0.75rem 1.5rem;
+        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        border: none;
+        border-radius: 8px;
+        color: white;
+        font-size: 0.875rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+        text-decoration: none;
+        white-space: nowrap;
+    }
+
+    .export-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(16, 185, 129, 0.6);
     }
 
     .filter-select {
         width: 100%;
         max-width: 300px;
         padding: 0.75rem 1rem;
-        background: rgba(30, 41, 59, 0.5);
-        border: 1px solid rgba(107, 114, 128, 0.3);
+        background: rgba(20, 20, 20, 0.7);
+        border: 1px solid rgba(60, 60, 60, 0.5);
         border-radius: 8px;
         color: white;
         font-size: 0.875rem;
@@ -49,18 +84,18 @@
 
     .filter-select:focus {
         outline: none;
-        border-color: #ec4899;
-        background: rgba(30, 41, 59, 0.7);
+        border-color: #a855f7;
+        background: rgba(20, 20, 20, 0.9);
     }
 
     .filter-select option {
-        background: #1e293b;
+        background: #1a1a1a;
         color: white;
     }
 
     .custom-range {
         padding-top: 1rem;
-        border-top: 1px solid rgba(107, 114, 128, 0.3);
+        border-top: 1px solid rgba(60, 60, 60, 0.5);
         margin-top: 1rem;
     }
 
@@ -90,8 +125,8 @@
     .filter-input {
         width: 100%;
         padding: 0.75rem 1rem;
-        background: rgba(30, 41, 59, 0.5);
-        border: 1px solid rgba(107, 114, 128, 0.3);
+        background: rgba(20, 20, 20, 0.7);
+        border: 1px solid rgba(60, 60, 60, 0.5);
         border-radius: 8px;
         color: white;
         font-size: 0.875rem;
@@ -100,8 +135,8 @@
 
     .filter-input:focus {
         outline: none;
-        border-color: #ec4899;
-        background: rgba(30, 41, 59, 0.7);
+        border-color: #a855f7;
+        background: rgba(20, 20, 20, 0.9);
     }
 
     .filter-input::placeholder {
@@ -110,29 +145,29 @@
 
     .filter-btn {
         padding: 0.75rem 1.5rem;
-        background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%);
+        background: linear-gradient(135deg, #a855f7 0%, #c084fc 100%);
         border: none;
         border-radius: 8px;
         color: white;
         font-weight: 500;
         cursor: pointer;
         transition: all 0.3s;
-        box-shadow: 0 4px 15px rgba(236, 72, 153, 0.4);
+        box-shadow: 0 4px 15px rgba(168, 85, 247, 0.5);
     }
 
     .filter-btn:hover {
         transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(236, 72, 153, 0.5);
+        box-shadow: 0 6px 20px rgba(168, 85, 247, 0.6);
     }
 
     /* Search Filters Section - Always visible */
     .search-filters {
-        background: rgba(45, 55, 72, 0.5);
+        background: rgba(26, 26, 26, 0.7);
         backdrop-filter: blur(10px);
         border-radius: 1rem;
         padding: 1.5rem;
         margin-bottom: 2rem;
-        border: 1px solid rgba(107, 114, 128, 0.3);
+        border: 1px solid rgba(60, 60, 60, 0.5);
     }
 
     .search-grid {
@@ -143,9 +178,9 @@
     }
 
     .table-section {
-        background: rgba(45, 55, 72, 0.5);
+        background: rgba(26, 26, 26, 0.7);
         backdrop-filter: blur(10px);
-        border: 1px solid rgba(107, 114, 128, 0.3);
+        border: 1px solid rgba(60, 60, 60, 0.5);
         border-radius: 12px;
         padding: 1.5rem;
         overflow: hidden;
@@ -164,7 +199,7 @@
     }
 
     .sales-table thead {
-        background: rgba(30, 41, 59, 0.5);
+        background: rgba(20, 20, 20, 0.7);
     }
 
     .sales-table th {
@@ -173,7 +208,7 @@
         font-size: 0.875rem;
         font-weight: 600;
         color: rgba(255, 255, 255, 0.9);
-        border-bottom: 1px solid rgba(107, 114, 128, 0.3);
+        border-bottom: 1px solid rgba(60, 60, 60, 0.5);
     }
 
     .sales-table th:first-child {
@@ -188,7 +223,7 @@
         padding: 1rem;
         font-size: 0.875rem;
         color: rgba(255, 255, 255, 0.9);
-        border-bottom: 1px solid rgba(107, 114, 128, 0.2);
+        border-bottom: 1px solid rgba(60, 60, 60, 0.3);
     }
 
     .sales-table tbody tr {
@@ -196,7 +231,7 @@
     }
 
     .sales-table tbody tr:hover {
-        background: rgba(55, 65, 81, 0.3);
+        background: rgba(40, 40, 40, 0.4);
     }
 
     .sales-table tbody tr:last-child td {
@@ -230,14 +265,14 @@
     }
 
     .invoice-link {
-        color: #ec4899;
+        color: #a855f7;
         text-decoration: none;
         font-weight: 500;
         transition: all 0.2s;
     }
 
     .invoice-link:hover {
-        color: #8b5cf6;
+        color: #c084fc;
         text-decoration: underline;
     }
 
@@ -310,16 +345,23 @@
 
 <!-- Date Range Filter - Same style as Dashboard -->
 <div class="date-range-filter">
-    <!-- Filter Dropdown -->
-    <div>
-        <label class="filter-label">Filter Period</label>
-        <select class="filter-select" id="filterSelect" onchange="handleFilterChange(this.value)">
-            <option value="today" {{ request('filter') == 'today' ? 'selected' : '' }}>Today</option>
-            <option value="yesterday" {{ request('filter') == 'yesterday' ? 'selected' : '' }}>Yesterday</option>
-            <option value="week" {{ request('filter') == 'week' ? 'selected' : '' }}>This Week</option>
-            <option value="month" {{ request('filter') == 'month' ? 'selected' : '' }}>This Month</option>
-            <option value="custom" {{ request('filter') == 'custom' || request('start_date') ? 'selected' : '' }}>Custom Range</option>
-        </select>
+    <div class="filter-header">
+        <div class="filter-header-left">
+            <label class="filter-label">Filter Period</label>
+            <select class="filter-select" id="filterSelect" onchange="handleFilterChange(this.value)">
+                <option value="today" {{ request('filter') == 'today' ? 'selected' : '' }}>Today</option>
+                <option value="yesterday" {{ request('filter') == 'yesterday' ? 'selected' : '' }}>Yesterday</option>
+                <option value="week" {{ request('filter') == 'week' ? 'selected' : '' }}>This Week</option>
+                <option value="month" {{ request('filter') == 'month' ? 'selected' : '' }}>This Month</option>
+                <option value="custom" {{ request('filter') == 'custom' || request('start_date') ? 'selected' : '' }}>Custom Range</option>
+            </select>
+        </div>
+        <a href="{{ route('reports.sales.export', request()->all()) }}" class="export-btn">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="20" height="20">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+            Export Excel
+        </a>
     </div>
 
     <!-- Custom Range Form -->

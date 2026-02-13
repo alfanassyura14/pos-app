@@ -25,8 +25,8 @@
 
     .search-input {
         padding: 0.75rem 1rem 0.75rem 3rem;
-        background: rgba(45, 55, 72, 0.5);
-        border: 1px solid rgba(107, 114, 128, 0.3);
+        background: rgba(26, 26, 26, 0.7);
+        border: 1px solid rgba(60, 60, 60, 0.5);
         border-radius: 10px;
         color: white;
         font-size: 0.875rem;
@@ -36,12 +36,12 @@
 
     .search-input:focus {
         outline: none;
-        border-color: #ec4899;
+        border-color: #a855f7;
     }
 
     .add-order-btn {
         padding: 0.75rem 1.5rem;
-        background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%);
+        background: linear-gradient(135deg, #a855f7 0%, #c084fc 100%);
         border: none;
         border-radius: 10px;
         color: white;
@@ -57,7 +57,7 @@
 
     .add-order-btn:hover {
         transform: translateY(-2px);
-        box-shadow: 0 4px 15px rgba(236, 72, 153, 0.5);
+        box-shadow: 0 4px 15px rgba(168, 85, 247, 0.6);
     }
 
     /* Tabs */
@@ -65,7 +65,7 @@
         display: flex;
         gap: 0.5rem;
         margin-bottom: 1.5rem;
-        border-bottom: 2px solid rgba(107, 114, 128, 0.3);
+        border-bottom: 2px solid rgba(60, 60, 60, 0.5);
         padding-bottom: 0.5rem;
     }
 
@@ -82,13 +82,13 @@
     }
 
     .tab.active {
-        background: rgba(236, 72, 153, 0.2);
-        color: #ec4899;
+        background: rgba(168, 85, 247, 0.2);
+        color: #a855f7;
     }
 
     .tab:hover:not(.active) {
         color: white;
-        background: rgba(107, 114, 128, 0.3);
+        background: rgba(60, 60, 60, 0.5);
     }
 
     /* Orders Grid */
@@ -98,19 +98,131 @@
         gap: 1.5rem;
     }
 
+    /* Confirmation Modal */
+    .confirm-modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(4px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10000;
+        animation: fadeIn 0.2s ease-out;
+    }
+
+    .confirm-modal {
+        background: rgba(26, 26, 26, 0.95);
+        border: 1px solid rgba(168, 85, 247, 0.3);
+        border-radius: 16px;
+        padding: 2rem;
+        max-width: 400px;
+        width: 90%;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        animation: slideUp 0.3s ease-out;
+    }
+
+    .confirm-modal-icon {
+        width: 64px;
+        height: 64px;
+        margin: 0 auto 1.5rem;
+        border-radius: 50%;
+        background: linear-gradient(135deg, rgba(239, 68, 68, 0.2) 0%, rgba(220, 38, 38, 0.2) 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #ef4444;
+    }
+
+    .confirm-modal-title {
+        font-size: 1.25rem;
+        font-weight: bold;
+        color: white;
+        text-align: center;
+        margin-bottom: 0.75rem;
+    }
+
+    .confirm-modal-message {
+        font-size: 0.875rem;
+        color: #9ca3af;
+        text-align: center;
+        margin-bottom: 2rem;
+        line-height: 1.5;
+    }
+
+    .confirm-modal-actions {
+        display: flex;
+        gap: 0.75rem;
+    }
+
+    .confirm-modal-btn {
+        flex: 1;
+        padding: 0.75rem 1.5rem;
+        border: none;
+        border-radius: 10px;
+        font-size: 0.875rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+
+    .cancel-btn {
+        background: rgba(60, 60, 60, 0.5);
+        color: white;
+        border: 1px solid rgba(60, 60, 60, 0.5);
+    }
+
+    .cancel-btn:hover {
+        background: rgba(80, 80, 80, 0.6);
+        transform: translateY(-1px);
+    }
+
+    .confirm-btn {
+        background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+        color: white;
+    }
+
+    .confirm-btn:hover {
+        box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4);
+        transform: translateY(-1px);
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    @keyframes slideUp {
+        from {
+            transform: translateY(20px);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
     .order-card {
-        background: rgba(45, 55, 72, 0.5);
+        background: rgba(26, 26, 26, 0.7);
         backdrop-filter: blur(10px);
-        border: 1px solid rgba(107, 114, 128, 0.3);
+        border: 1px solid rgba(60, 60, 60, 0.5);
         border-radius: 12px;
         padding: 1.5rem;
         transition: all 0.3s;
     }
 
     .order-card:hover {
-        border-color: #ec4899;
+        border-color: #a855f7;
         transform: translateY(-2px);
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
     }
 
     .order-header {
@@ -119,13 +231,13 @@
         align-items: flex-start;
         margin-bottom: 1rem;
         padding-bottom: 1rem;
-        border-bottom: 1px solid rgba(107, 114, 128, 0.3);
+        border-bottom: 1px solid rgba(60, 60, 60, 0.5);
     }
 
     .order-number {
         font-size: 1rem;
         font-weight: bold;
-        color: #ec4899;
+        color: #a855f7;
         margin-bottom: 0.25rem;
     }
 
@@ -194,13 +306,13 @@
     }
 
     .item-price {
-        color: #ec4899;
+        color: #a855f7;
         font-weight: 500;
     }
 
     .order-summary {
         padding-top: 1rem;
-        border-top: 1px solid rgba(107, 114, 128, 0.3);
+        border-top: 1px solid rgba(60, 60, 60, 0.5);
         margin-bottom: 1rem;
     }
 
@@ -214,10 +326,10 @@
     .summary-row.total {
         font-size: 1.125rem;
         font-weight: bold;
-        color: #ec4899;
+        color: #a855f7;
         margin-top: 0.5rem;
         padding-top: 0.5rem;
-        border-top: 1px solid rgba(107, 114, 128, 0.3);
+        border-top: 1px solid rgba(60, 60, 60, 0.5);
     }
 
     .order-actions {
@@ -261,13 +373,13 @@
     }
 
     .pay-btn {
-        background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%);
+        background: linear-gradient(135deg, #a855f7 0%, #c084fc 100%);
         color: white;
     }
 
     .pay-btn:hover {
         transform: translateY(-2px);
-        box-shadow: 0 4px 15px rgba(236, 72, 153, 0.5);
+        box-shadow: 0 4px 15px rgba(168, 85, 247, 0.6);
     }
 
     .empty-state {
@@ -392,6 +504,23 @@
     </div>
     @endforelse
 </div>
+
+<!-- Confirmation Modal -->
+<div id="confirmModalOverlay" class="confirm-modal-overlay" style="display: none;">
+    <div class="confirm-modal">
+        <div class="confirm-modal-icon">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="48" height="48">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+            </svg>
+        </div>
+        <h3 class="confirm-modal-title" id="confirmModalTitle">Confirm Action</h3>
+        <p class="confirm-modal-message" id="confirmModalMessage">Are you sure you want to proceed?</p>
+        <div class="confirm-modal-actions">
+            <button class="confirm-modal-btn cancel-btn" id="confirmModalCancel">Cancel</button>
+            <button class="confirm-modal-btn confirm-btn" id="confirmModalConfirm">Confirm</button>
+        </div>
+    </div>
+</div>
 @endsection
 
 @push('scripts')
@@ -439,29 +568,66 @@
         window.location.href = `/orders/${orderId}`;
     }
 
-    async function deleteOrder(orderId) {
-        if (!confirm('Are you sure you want to delete this order?')) {
-            return;
-        }
-
-        try {
-            const response = await fetch(`/orders/${orderId}`, {
-                method: 'DELETE',
-                headers: {
-                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                }
-            });
-
-            if (response.ok) {
-                alert('Order deleted successfully');
-                location.reload();
-            } else {
-                alert('Failed to delete order');
+    function showConfirmModal(title, message, onConfirm) {
+        const overlay = document.getElementById('confirmModalOverlay');
+        const titleEl = document.getElementById('confirmModalTitle');
+        const messageEl = document.getElementById('confirmModalMessage');
+        const confirmBtn = document.getElementById('confirmModalConfirm');
+        const cancelBtn = document.getElementById('confirmModalCancel');
+        
+        titleEl.textContent = title;
+        messageEl.textContent = message;
+        overlay.style.display = 'flex';
+        
+        // Remove old listeners
+        const newConfirmBtn = confirmBtn.cloneNode(true);
+        const newCancelBtn = cancelBtn.cloneNode(true);
+        confirmBtn.parentNode.replaceChild(newConfirmBtn, confirmBtn);
+        cancelBtn.parentNode.replaceChild(newCancelBtn, cancelBtn);
+        
+        // Add new listeners
+        newConfirmBtn.addEventListener('click', () => {
+            overlay.style.display = 'none';
+            onConfirm();
+        });
+        
+        newCancelBtn.addEventListener('click', () => {
+            overlay.style.display = 'none';
+        });
+        
+        // Close on overlay click
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) {
+                overlay.style.display = 'none';
             }
-        } catch (error) {
-            console.error('Error:', error);
-            alert('Failed to delete order');
-        }
+        });
+    }
+
+    async function deleteOrder(orderId) {
+        showConfirmModal(
+            'Delete Order',
+            'Are you sure you want to delete this order? This action cannot be undone.',
+            async () => {
+                try {
+                    const response = await fetch(`/orders/${orderId}`, {
+                        method: 'DELETE',
+                        headers: {
+                            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                        }
+                    });
+
+                    if (response.ok) {
+                        alert('Order deleted successfully');
+                        location.reload();
+                    } else {
+                        alert('Failed to delete order');
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    alert('Failed to delete order');
+                }
+            }
+        );
     }
 
     async function payBill(orderId) {

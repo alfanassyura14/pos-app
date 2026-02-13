@@ -13,7 +13,7 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -26,7 +26,7 @@
             font-size: 2.5rem;
             font-weight: bold;
             margin-bottom: 3rem;
-            background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%);
+            background: linear-gradient(135deg, #a855f7 0%, #c084fc 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -34,12 +34,12 @@
         }
 
         .login-container {
-            background: rgba(45, 55, 72, 0.95);
+            background: rgba(26, 26, 26, 0.95);
             border-radius: 20px;
             padding: 3rem 2.5rem;
             width: 90%;
             max-width: 450px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
             backdrop-filter: blur(10px);
         }
 
@@ -77,8 +77,8 @@
         .form-input {
             width: 100%;
             padding: 0.875rem 1rem;
-            background: rgba(30, 41, 59, 0.5);
-            border: 2px solid rgba(100, 116, 139, 0.3);
+            background: rgba(20, 20, 20, 0.7);
+            border: 2px solid rgba(60, 60, 60, 0.5);
             border-radius: 10px;
             color: #fff;
             font-size: 0.95rem;
@@ -91,8 +91,8 @@
         }
 
         .form-input:focus {
-            border-color: #667eea;
-            background: rgba(30, 41, 59, 0.7);
+            border-color: #a855f7;
+            background: rgba(20, 20, 20, 0.9);
         }
 
         .password-toggle {
@@ -133,24 +133,24 @@
             width: 16px;
             height: 16px;
             cursor: pointer;
-            accent-color: #667eea;
+            accent-color: #a855f7;
         }
 
         .forgot-password {
-            color: #667eea;
+            color: #a855f7;
             text-decoration: none;
             font-size: 0.85rem;
             transition: color 0.3s ease;
         }
 
         .forgot-password:hover {
-            color: #764ba2;
+            color: #c084fc;
         }
 
         .login-button {
             width: 100%;
             padding: 1rem;
-            background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%);
+            background: linear-gradient(135deg, #a855f7 0%, #c084fc 100%);
             border: none;
             border-radius: 10px;
             color: #fff;
@@ -158,12 +158,12 @@
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 4px 15px rgba(168, 85, 247, 0.5);
         }
 
         .login-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+            box-shadow: 0 6px 20px rgba(168, 85, 247, 0.7);
         }
 
         .login-button:active {

@@ -20,7 +20,7 @@
     }
 
     .add-btn {
-        background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
+        background: linear-gradient(135deg, #a855f7 0%, #9333ea 100%);
         color: white;
         border: none;
         padding: 0.75rem 1.5rem;
@@ -28,12 +28,12 @@
         cursor: pointer;
         font-weight: 500;
         transition: all 0.3s;
-        box-shadow: 0 4px 15px rgba(236, 72, 153, 0.4);
+        box-shadow: 0 4px 15px rgba(168, 85, 247, 0.5);
     }
 
     .add-btn:hover {
         transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(236, 72, 153, 0.5);
+        box-shadow: 0 6px 20px rgba(168, 85, 247, 0.6);
     }
 
     .categories-grid {
@@ -44,9 +44,9 @@
     }
 
     .category-card {
-        background: rgba(45, 55, 72, 0.5);
+        background: rgba(26, 26, 26, 0.7);
         backdrop-filter: blur(10px);
-        border: 1px solid rgba(107, 114, 128, 0.3);
+        border: 1px solid rgba(60, 60, 60, 0.5);
         border-radius: 16px;
         padding: 1.5rem;
         text-align: center;
@@ -56,20 +56,31 @@
     }
 
     .category-card:hover {
-        background: rgba(55, 65, 81, 0.6);
+        background: rgba(40, 40, 40, 0.7);
         transform: translateY(-4px);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
     }
 
     .category-card.active {
-        background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%);
+        background: linear-gradient(135deg, #a855f7 0%, #c084fc 100%);
         border-color: transparent;
     }
 
     .category-icon {
         font-size: 3rem;
         margin-bottom: 0.5rem;
-        filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.3));
+        filter: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #a855f7;
+    }
+
+    .category-icon svg {
+        width: 3rem;
+        height: 3rem;
+        stroke: currentColor;
+        fill: none;
     }
 
     .category-name {
@@ -96,8 +107,8 @@
     }
 
     .menu-tab {
-        background: rgba(45, 55, 72, 0.5);
-        border: 1px solid rgba(107, 114, 128, 0.3);
+        background: rgba(26, 26, 26, 0.7);
+        border: 1px solid rgba(60, 60, 60, 0.5);
         color: #9ca3af;
         padding: 0.75rem 1.5rem;
         border-radius: 12px;
@@ -107,19 +118,19 @@
     }
 
     .menu-tab.active {
-        background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%);
+        background: linear-gradient(135deg, #a855f7 0%, #c084fc 100%);
         color: white;
         border-color: transparent;
     }
 
     .menu-tab:hover:not(.active) {
-        background: rgba(55, 65, 81, 0.6);
+        background: rgba(40, 40, 40, 0.7);
         color: white;
     }
 
     /* Products Table */
     .table-container {
-        background: rgba(45, 55, 72, 0.3);
+        background: rgba(26, 26, 26, 0.5);
         border-radius: 16px;
         overflow: hidden;
     }
@@ -130,7 +141,7 @@
     }
 
     .products-table thead {
-        background: rgba(55, 65, 81, 0.5);
+        background: rgba(20, 20, 20, 0.7);
     }
 
     .products-table th {
@@ -143,7 +154,7 @@
 
     .products-table td {
         padding: 1rem;
-        border-top: 1px solid rgba(107, 114, 128, 0.2);
+        border-top: 1px solid rgba(60, 60, 60, 0.3);
     }
 
     .products-table tbody tr {
@@ -151,7 +162,7 @@
     }
 
     .products-table tbody tr:hover {
-        background: rgba(55, 65, 81, 0.3);
+        background: rgba(40, 40, 40, 0.4);
     }
 
     .product-info {
@@ -165,7 +176,7 @@
         height: 60px;
         border-radius: 12px;
         object-fit: cover;
-        background: rgba(107, 114, 128, 0.3);
+        background: rgba(60, 60, 60, 0.5);
     }
 
     .product-details h3 {
@@ -206,7 +217,7 @@
     }
 
     .icon-btn {
-        background: rgba(107, 114, 128, 0.3);
+        background: rgba(60, 60, 60, 0.5);
         border: none;
         color: white;
         width: 36px;
@@ -220,7 +231,7 @@
     }
 
     .icon-btn:hover {
-        background: rgba(107, 114, 128, 0.5);
+        background: rgba(80, 80, 80, 0.6);
     }
 
     .icon-btn.edit:hover {
@@ -251,15 +262,15 @@
     }
 
     .modal-content {
-        background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+        background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
         border-radius: 20px;
         padding: 2rem;
         max-width: 500px;
         width: 90%;
         max-height: 90vh;
         overflow-y: auto;
-        border: 1px solid rgba(107, 114, 128, 0.3);
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        border: 1px solid rgba(60, 60, 60, 0.5);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
     }
 
     .modal-header {
@@ -275,7 +286,7 @@
     }
 
     .close-btn {
-        background: rgba(107, 114, 128, 0.3);
+        background: rgba(60, 60, 60, 0.5);
         border: none;
         color: white;
         width: 36px;
@@ -308,8 +319,8 @@
     .form-group textarea {
         width: 100%;
         padding: 0.75rem;
-        background: rgba(55, 65, 81, 0.5);
-        border: 1px solid rgba(107, 114, 128, 0.3);
+        background: rgba(20, 20, 20, 0.7);
+        border: 1px solid rgba(60, 60, 60, 0.5);
         border-radius: 8px;
         color: white;
         font-size: 0.875rem;
@@ -320,8 +331,8 @@
     .form-group select:focus,
     .form-group textarea:focus {
         outline: none;
-        border-color: #ec4899;
-        box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.1);
+        border-color: #a855f7;
+        box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.2);
     }
 
     .form-group textarea {
@@ -330,8 +341,8 @@
     }
 
     .image-upload {
-        background: rgba(55, 65, 81, 0.3);
-        border: 2px dashed rgba(107, 114, 128, 0.5);
+        background: rgba(20, 20, 20, 0.5);
+        border: 2px dashed rgba(80, 80, 80, 0.6);
         border-radius: 12px;
         padding: 2rem;
         text-align: center;
@@ -340,8 +351,8 @@
     }
 
     .image-upload:hover {
-        border-color: #ec4899;
-        background: rgba(55, 65, 81, 0.5);
+        border-color: #a855f7;
+        background: rgba(30, 30, 30, 0.6);
     }
 
     .image-upload.has-image {
@@ -399,18 +410,29 @@
     .icon-option {
         font-size: 2rem;
         padding: 0.5rem;
-        background: rgba(55, 65, 81, 0.3);
+        background: rgba(20, 20, 20, 0.5);
         border: 2px solid transparent;
         border-radius: 8px;
         cursor: pointer;
         transition: all 0.3s;
         text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #a855f7;
+    }
+
+    .icon-option svg {
+        width: 2rem;
+        height: 2rem;
+        stroke: currentColor;
+        fill: none;
     }
 
     .icon-option:hover,
     .icon-option.selected {
-        border-color: #ec4899;
-        background: rgba(236, 72, 153, 0.2);
+        border-color: #a855f7;
+        background: rgba(168, 85, 247, 0.2);
     }
 
     .modal-actions {
@@ -430,23 +452,23 @@
     }
 
     .btn-cancel {
-        background: rgba(107, 114, 128, 0.3);
+        background: rgba(60, 60, 60, 0.5);
         color: white;
     }
 
     .btn-cancel:hover {
-        background: rgba(107, 114, 128, 0.5);
+        background: rgba(80, 80, 80, 0.6);
     }
 
     .btn-save {
-        background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
+        background: linear-gradient(135deg, #a855f7 0%, #9333ea 100%);
         color: white;
-        box-shadow: 0 4px 15px rgba(236, 72, 153, 0.4);
+        box-shadow: 0 4px 15px rgba(168, 85, 247, 0.5);
     }
 
     .btn-save:hover {
         transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(236, 72, 153, 0.5);
+        box-shadow: 0 6px 20px rgba(168, 85, 247, 0.6);
     }
 
     /* Toast Notification */
@@ -541,6 +563,118 @@
             opacity: 0;
         }
     }
+
+    /* Confirmation Modal */
+    .confirm-modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(4px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10000;
+        animation: fadeIn 0.2s ease-out;
+    }
+
+    .confirm-modal {
+        background: rgba(26, 26, 26, 0.95);
+        border: 1px solid rgba(168, 85, 247, 0.3);
+        border-radius: 16px;
+        padding: 2rem;
+        max-width: 400px;
+        width: 90%;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        animation: slideUp 0.3s ease-out;
+    }
+
+    .confirm-modal-icon {
+        width: 64px;
+        height: 64px;
+        margin: 0 auto 1.5rem;
+        border-radius: 50%;
+        background: linear-gradient(135deg, rgba(239, 68, 68, 0.2) 0%, rgba(220, 38, 38, 0.2) 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #ef4444;
+    }
+
+    .confirm-modal-title {
+        font-size: 1.25rem;
+        font-weight: bold;
+        color: white;
+        text-align: center;
+        margin-bottom: 0.75rem;
+    }
+
+    .confirm-modal-message {
+        font-size: 0.875rem;
+        color: #9ca3af;
+        text-align: center;
+        margin-bottom: 2rem;
+        line-height: 1.5;
+    }
+
+    .confirm-modal-actions {
+        display: flex;
+        gap: 0.75rem;
+    }
+
+    .confirm-modal-btn {
+        flex: 1;
+        padding: 0.75rem 1.5rem;
+        border: none;
+        border-radius: 10px;
+        font-size: 0.875rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+
+    .cancel-btn {
+        background: rgba(60, 60, 60, 0.5);
+        color: white;
+        border: 1px solid rgba(60, 60, 60, 0.5);
+    }
+
+    .cancel-btn:hover {
+        background: rgba(80, 80, 80, 0.6);
+        transform: translateY(-1px);
+    }
+
+    .confirm-btn {
+        background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+        color: white;
+    }
+
+    .confirm-btn:hover {
+        box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4);
+        transform: translateY(-1px);
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    @keyframes slideUp {
+        from {
+            transform: translateY(20px);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
 @endpush
 
 @section('content')
@@ -564,7 +698,55 @@
         @foreach($categories ?? [] as $category)
         <div class="category-card" data-category="{{ $category->id }}">
             <div class="category-icon">
-                {!! $category->icon ?? '📦' !!}
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="48" height="48">
+                    @php
+                        $icon = $category->icon ?? '📦';
+                        $svgPath = '';
+                        
+                        // Mapping emoji ke SVG paths
+                        switch($icon) {
+                            case '🍕': // Pizza
+                                $svgPath = '<circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 0 0 20V2z"/><circle cx="8" cy="8" r="1"/><circle cx="8" cy="14" r="1"/>';
+                                break;
+                            case '🍔': // Burger
+                                $svgPath = '<path d="M3 11h18M3 11c0-1.1.9-2 2-2h14c1.1 0 2 .9 2 2M3 11v2c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-2M4 9h16M6 15h12"/><circle cx="8" cy="11" r="1"/><circle cx="16" cy="11" r="1"/>';
+                                break;
+                            case '🍗': // Chicken
+                                $svgPath = '<path d="M12 2c-3 0-5 2-5 5v3c0 2 1 3 2 4l-2 8h10l-2-8c1-1 2-2 2-4V7c0-3-2-5-5-5z"/><path d="M9 7h6"/>';
+                                break;
+                            case '🎂': // Cake
+                                $svgPath = '<path d="M20 21H4a1 1 0 0 1-1-1v-6a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1z"/><path d="M3 14h18M6 14V7M12 14V7M18 14V7M7 3v2M12 3v2M17 3v2"/>';
+                                break;
+                            case '🥤': // Drink
+                                $svgPath = '<path d="M6 2h12l-1 18a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2L6 2z"/><path d="M6 7h12"/><path d="M10 3l1 4M14 3l-1 4"/>';
+                                break;
+                            case '🍤': // Shrimp
+                                $svgPath = '<path d="M20 12c0 2-4 4-8 4s-8-2-8-4 4-4 8-4 8 2 8 4z"/><path d="M12 16c-2 0-4-1-4-2M12 8c-2 0-4 1-4 2M16 10c0 .5-.5 1-1.5 1s-1.5-.5-1.5-1"/>';
+                                break;
+                            case '🍜': // Noodle/Ramen
+                                $svgPath = '<circle cx="12" cy="14" r="8"/><path d="M8 10v4M12 10v4M16 10v4M8 18h8"/><path d="M6 14c0-2 1-4 3-5M18 14c0-2-1-4-3-5"/>';
+                                break;
+                            case '🍝': // Pasta
+                                $svgPath = '<path d="M20 12H4M8 8v8M12 8v8M16 8v8"/><path d="M4 12c0 2 1 4 3 5M20 12c0 2-1 4-3 5M7 17h10"/>';
+                                break;
+                            case '🍛': // Curry/Rice
+                                $svgPath = '<rect x="4" y="10" width="16" height="10" rx="2"/><path d="M4 14h16M8 10V8c0-1 .5-2 1.5-2s1.5 1 1.5 2v2M12 10V8c0-1 .5-2 1.5-2s1.5 1 1.5 2v2"/>';
+                                break;
+                            case '🍱': // Bento
+                                $svgPath = '<rect x="3" y="6" width="18" height="14" rx="2"/><path d="M3 12h18M12 6v14M6 9v6M18 9v6"/>';
+                                break;
+                            case '🍣': // Sushi
+                                $svgPath = '<ellipse cx="12" cy="12" rx="9" ry="6"/><path d="M3 12h18"/><circle cx="8" cy="9" r="1"/><circle cx="16" cy="9" r="1"/>';
+                                break;
+                            case '🥗': // Salad
+                                $svgPath = '<path d="M3 18h18c0-3-4-5-9-5s-9 2-9 5z"/><circle cx="8" cy="10" r="2"/><circle cx="16" cy="10" r="2"/><circle cx="12" cy="7" r="2"/><path d="M12 18v3"/>';
+                                break;
+                            default: // Default box icon
+                                $svgPath = '<path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/>';
+                        }
+                    @endphp
+                    {!! $svgPath !!}
+                </svg>
             </div>
             <div class="category-name">{{ $category->c_name }}</div>
             <div class="category-count">{{ $category->products_count }} items</div>
@@ -682,22 +864,70 @@
                     <label>Select Icon here</label>
                     <div class="image-upload" style="padding: 1rem; text-align: left;">
                         <div style="color: #9ca3af; font-size: 0.875rem; margin-bottom: 0.5rem;">Select icon</div>
-                        <button type="button" class="btn" id="toggleIconSelector" style="background: rgba(107, 114, 128, 0.3); padding: 0.5rem 1rem;">Change Icon</button>
+                        <button type="button" class="btn" id="toggleIconSelector" style="background: rgba(60, 60, 60, 0.5); padding: 0.5rem 1rem;">Change Icon</button>
                     </div>
                     <input type="hidden" name="icon" id="categoryIcon" value="📦">
                     <div class="icon-selector" id="iconSelector" style="display: none;">
-                        <div class="icon-option" data-icon="🍕">🍕</div>
-                        <div class="icon-option" data-icon="🍔">🍔</div>
-                        <div class="icon-option" data-icon="🍗">🍗</div>
-                        <div class="icon-option" data-icon="🎂">🎂</div>
-                        <div class="icon-option" data-icon="🥤">🥤</div>
-                        <div class="icon-option" data-icon="🍤">🍤</div>
-                        <div class="icon-option" data-icon="🍜">🍜</div>
-                        <div class="icon-option" data-icon="🍝">🍝</div>
-                        <div class="icon-option" data-icon="🍛">🍛</div>
-                        <div class="icon-option" data-icon="🍱">🍱</div>
-                        <div class="icon-option" data-icon="🍣">🍣</div>
-                        <div class="icon-option" data-icon="🥗">🥗</div>
+                        <div class="icon-option" data-icon="🍕">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 0 0 20V2z"/><circle cx="8" cy="8" r="1"/><circle cx="8" cy="14" r="1"/>
+                            </svg>
+                        </div>
+                        <div class="icon-option" data-icon="🍔">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path d="M3 11h18M3 11c0-1.1.9-2 2-2h14c1.1 0 2 .9 2 2M3 11v2c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-2M4 9h16M6 15h12"/><circle cx="8" cy="11" r="1"/><circle cx="16" cy="11" r="1"/>
+                            </svg>
+                        </div>
+                        <div class="icon-option" data-icon="🍗">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2c-3 0-5 2-5 5v3c0 2 1 3 2 4l-2 8h10l-2-8c1-1 2-2 2-4V7c0-3-2-5-5-5z"/><path d="M9 7h6"/>
+                            </svg>
+                        </div>
+                        <div class="icon-option" data-icon="🎂">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path d="M20 21H4a1 1 0 0 1-1-1v-6a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1z"/><path d="M3 14h18M6 14V7M12 14V7M18 14V7M7 3v2M12 3v2M17 3v2"/>
+                            </svg>
+                        </div>
+                        <div class="icon-option" data-icon="🥤">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path d="M6 2h12l-1 18a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2L6 2z"/><path d="M6 7h12"/><path d="M10 3l1 4M14 3l-1 4"/>
+                            </svg>
+                        </div>
+                        <div class="icon-option" data-icon="🍤">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path d="M20 12c0 2-4 4-8 4s-8-2-8-4 4-4 8-4 8 2 8 4z"/><path d="M12 16c-2 0-4-1-4-2M12 8c-2 0-4 1-4 2M16 10c0 .5-.5 1-1.5 1s-1.5-.5-1.5-1"/>
+                            </svg>
+                        </div>
+                        <div class="icon-option" data-icon="🍜">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <circle cx="12" cy="14" r="8"/><path d="M8 10v4M12 10v4M16 10v4M8 18h8"/><path d="M6 14c0-2 1-4 3-5M18 14c0-2-1-4-3-5"/>
+                            </svg>
+                        </div>
+                        <div class="icon-option" data-icon="🍝">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path d="M20 12H4M8 8v8M12 8v8M16 8v8"/><path d="M4 12c0 2 1 4 3 5M20 12c0 2-1 4-3 5M7 17h10"/>
+                            </svg>
+                        </div>
+                        <div class="icon-option" data-icon="🍛">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <rect x="4" y="10" width="16" height="10" rx="2"/><path d="M4 14h16M8 10V8c0-1 .5-2 1.5-2s1.5 1 1.5 2v2M12 10V8c0-1 .5-2 1.5-2s1.5 1 1.5 2v2"/>
+                            </svg>
+                        </div>
+                        <div class="icon-option" data-icon="🍱">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <rect x="3" y="6" width="18" height="14" rx="2"/><path d="M3 12h18M12 6v14M6 9v6M18 9v6"/>
+                            </svg>
+                        </div>
+                        <div class="icon-option" data-icon="🍣">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <ellipse cx="12" cy="12" rx="9" ry="6"/><path d="M3 12h18"/><circle cx="8" cy="9" r="1"/><circle cx="16" cy="9" r="1"/>
+                            </svg>
+                        </div>
+                        <div class="icon-option" data-icon="🥗">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path d="M3 18h18c0-3-4-5-9-5s-9 2-9 5z"/><circle cx="8" cy="10" r="2"/><circle cx="16" cy="10" r="2"/><circle cx="12" cy="7" r="2"/><path d="M12 18v3"/>
+                            </svg>
+                        </div>
                     </div>
                 </div>
 
@@ -798,6 +1028,23 @@
                     <button type="submit" class="btn btn-save">Save</button>
                 </div>
             </form>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div class="confirm-modal-overlay" id="confirmModalOverlay" style="display: none;">
+        <div class="confirm-modal">
+            <div class="confirm-modal-icon">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="48" height="48">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                </svg>
+            </div>
+            <h3 class="confirm-modal-title" id="confirmModalTitle">Confirm Action</h3>
+            <p class="confirm-modal-message" id="confirmModalMessage">Are you sure you want to proceed?</p>
+            <div class="confirm-modal-actions">
+                <button class="confirm-modal-btn cancel-btn" id="confirmModalCancel">Cancel</button>
+                <button class="confirm-modal-btn confirm-btn" id="confirmModalConfirm">Confirm</button>
+            </div>
         </div>
     </div>
 @endsection
@@ -1033,17 +1280,21 @@
             const id = this.getAttribute('data-id');
             const name = this.getAttribute('data-name');
 
-            if (confirm(`Are you sure you want to delete "${name}" category?`)) {
-                const form = document.createElement('form');
-                form.method = 'POST';
-                form.action = `/categories/${id}`;
-                form.innerHTML = `
-                    @csrf
-                    <input type="hidden" name="_method" value="DELETE">
-                `;
-                document.body.appendChild(form);
-                form.submit();
-            }
+            showConfirmModal(
+                'Delete Category',
+                `Are you sure you want to delete "${name}" category? All products in this category will be affected.`,
+                () => {
+                    const form = document.createElement('form');
+                    form.method = 'POST';
+                    form.action = `/categories/${id}`;
+                    form.innerHTML = `
+                        @csrf
+                        <input type="hidden" name="_method" value="DELETE">
+                    `;
+                    document.body.appendChild(form);
+                    form.submit();
+                }
+            );
         });
     });
 
@@ -1090,17 +1341,21 @@
             const id = this.getAttribute('data-id');
             const name = this.getAttribute('data-name');
 
-            if (confirm(`Are you sure you want to delete "${name}"?`)) {
-                const form = document.createElement('form');
-                form.method = 'POST';
-                form.action = `/products/${id}`;
-                form.innerHTML = `
-                    @csrf
-                    <input type="hidden" name="_method" value="DELETE">
-                `;
-                document.body.appendChild(form);
-                form.submit();
-            }
+            showConfirmModal(
+                'Delete Product',
+                `Are you sure you want to delete "${name}"? This action cannot be undone.`,
+                () => {
+                    const form = document.createElement('form');
+                    form.method = 'POST';
+                    form.action = `/products/${id}`;
+                    form.innerHTML = `
+                        @csrf
+                        <input type="hidden" name="_method" value="DELETE">
+                    `;
+                    document.body.appendChild(form);
+                    form.submit();
+                }
+            );
         });
     });
 
@@ -1122,5 +1377,41 @@
             if (actions) actions.style.display = 'none';
         });
     });
+
+    // Show confirmation modal
+    function showConfirmModal(title, message, onConfirm) {
+        const overlay = document.getElementById('confirmModalOverlay');
+        const titleEl = document.getElementById('confirmModalTitle');
+        const messageEl = document.getElementById('confirmModalMessage');
+        const confirmBtn = document.getElementById('confirmModalConfirm');
+        const cancelBtn = document.getElementById('confirmModalCancel');
+        
+        titleEl.textContent = title;
+        messageEl.textContent = message;
+        overlay.style.display = 'flex';
+        
+        // Remove old listeners
+        const newConfirmBtn = confirmBtn.cloneNode(true);
+        const newCancelBtn = cancelBtn.cloneNode(true);
+        confirmBtn.parentNode.replaceChild(newConfirmBtn, confirmBtn);
+        cancelBtn.parentNode.replaceChild(newCancelBtn, cancelBtn);
+        
+        // Add new listeners
+        newConfirmBtn.addEventListener('click', () => {
+            overlay.style.display = 'none';
+            onConfirm();
+        });
+        
+        newCancelBtn.addEventListener('click', () => {
+            overlay.style.display = 'none';
+        });
+        
+        // Close on overlay click
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) {
+                overlay.style.display = 'none';
+            }
+        });
+    }
 </script>
 @endpush

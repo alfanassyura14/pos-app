@@ -7,20 +7,20 @@ $pageTitle = 'Dashboard';
 @push('styles')
 /* Date Range Filter */
 .date-range-filter {
-background: rgba(45, 55, 72, 0.5);
+background: rgba(26, 26, 26, 0.7);
 backdrop-filter: blur(10px);
 border-radius: 1rem;
 padding: 1.5rem;
 margin-bottom: 2rem;
-border: 1px solid rgba(107, 114, 128, 0.3);
+border: 1px solid rgba(60, 60, 60, 0.5);
 }
 
 .filter-select {
 width: 100%;
 max-width: 300px;
 padding: 0.75rem 1rem;
-background: rgba(30, 41, 59, 0.5);
-border: 1px solid rgba(107, 114, 128, 0.3);
+background: rgba(20, 20, 20, 0.7);
+border: 1px solid rgba(60, 60, 60, 0.5);
 border-radius: 8px;
 color: white;
 font-size: 0.875rem;
@@ -32,18 +32,18 @@ margin-bottom: 1rem;
 
 .filter-select:focus {
 outline: none;
-border-color: #ec4899;
-background: rgba(30, 41, 59, 0.7);
+border-color: #a855f7;
+background: rgba(20, 20, 20, 0.9);
 }
 
 .filter-select option {
-background: #1e293b;
+background: #1a1a1a;
 color: white;
 }
 
 .custom-range {
 padding-top: 1rem;
-border-top: 1px solid rgba(107, 114, 128, 0.3);
+border-top: 1px solid rgba(60, 60, 60, 0.5);
 margin-top: 1rem;
 }
 
@@ -73,8 +73,8 @@ margin-bottom: 0.5rem;
 .filter-input {
 width: 100%;
 padding: 0.75rem 1rem;
-background: rgba(30, 41, 59, 0.5);
-border: 1px solid rgba(107, 114, 128, 0.3);
+background: rgba(20, 20, 20, 0.7);
+border: 1px solid rgba(60, 60, 60, 0.5);
 border-radius: 8px;
 color: white;
 font-size: 0.875rem;
@@ -83,30 +83,30 @@ transition: all 0.3s;
 
 .filter-input:focus {
 outline: none;
-border-color: #ec4899;
-background: rgba(30, 41, 59, 0.7);
+border-color: #a855f7;
+background: rgba(20, 20, 20, 0.9);
 }
 
 .filter-btn {
 padding: 0.75rem 1.5rem;
-background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%);
+background: linear-gradient(135deg, #a855f7 0%, #c084fc 100%);
 border: none;
 border-radius: 8px;
 color: white;
 font-weight: 500;
 cursor: pointer;
 transition: all 0.3s;
-box-shadow: 0 4px 15px rgba(236, 72, 153, 0.4);
+box-shadow: 0 4px 15px rgba(168, 85, 247, 0.5);
 }
 
 .filter-btn:hover {
 transform: translateY(-2px);
-box-shadow: 0 6px 20px rgba(236, 72, 153, 0.5);
+box-shadow: 0 6px 20px rgba(168, 85, 247, 0.6);
 }
 
 .filter-btn-reset {
 padding: 0.75rem 1.5rem;
-background: rgba(107, 114, 128, 0.3);
+background: rgba(60, 60, 60, 0.5);
 border: none;
 border-radius: 8px;
 color: white;
@@ -118,7 +118,7 @@ display: inline-block;
 }
 
 .filter-btn-reset:hover {
-background: rgba(107, 114, 128, 0.5);
+background: rgba(80, 80, 80, 0.6);
 }
 
 /* Metrics Cards */
@@ -130,11 +130,11 @@ margin-bottom: 2rem;
 }
 
 .metric-card {
-background: rgba(45, 55, 72, 0.5);
+background: rgba(26, 26, 26, 0.7);
 backdrop-filter: blur(10px);
 border-radius: 1rem;
 padding: 1.5rem;
-border: 1px solid rgba(107, 114, 128, 0.3);
+border: 1px solid rgba(60, 60, 60, 0.5);
 transition: all 0.3s;
 }
 
@@ -160,7 +160,7 @@ margin-bottom: 0.5rem;
 font-size: 2rem;
 font-weight: bold;
 margin-bottom: 0.25rem;
-background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%);
+background: linear-gradient(135deg, #a855f7 0%, #c084fc 100%);
 -webkit-background-clip: text;
 -webkit-text-fill-color: transparent;
 background-clip: text;
@@ -175,11 +175,11 @@ color: #6b7280;
 width: 48px;
 height: 48px;
 border-radius: 12px;
-background: rgba(236, 72, 153, 0.1);
+background: rgba(168, 85, 247, 0.15);
 display: flex;
 align-items: center;
 justify-content: center;
-color: #ec4899;
+color: #a855f7;
 }
 
 .metric-icon svg {
@@ -189,11 +189,11 @@ height: 28px;
 
 /* Top Products */
 .top-products-card {
-background: rgba(45, 55, 72, 0.5);
+background: rgba(26, 26, 26, 0.7);
 backdrop-filter: blur(10px);
 border-radius: 1rem;
 padding: 1.5rem;
-border: 1px solid rgba(107, 114, 128, 0.3);
+border: 1px solid rgba(60, 60, 60, 0.5);
 margin-bottom: 2rem;
 }
 
@@ -203,7 +203,7 @@ justify-content: space-between;
 align-items: center;
 margin-bottom: 1.5rem;
 padding-bottom: 1rem;
-border-bottom: 1px solid rgba(107, 114, 128, 0.3);
+border-bottom: 1px solid rgba(60, 60, 60, 0.5);
 }
 
 .card-header h2 {
@@ -222,7 +222,7 @@ display: flex;
 align-items: center;
 gap: 1rem;
 padding: 1rem;
-background: rgba(30, 41, 59, 0.5);
+background: rgba(20, 20, 20, 0.7);
 border-radius: 12px;
 transition: all 0.3s;
 text-decoration: none;
@@ -230,7 +230,7 @@ color: inherit;
 }
 
 .product-item:hover {
-background: rgba(30, 41, 59, 0.7);
+background: rgba(30, 30, 30, 0.8);
 transform: translateX(4px);
 cursor: pointer;
 }
@@ -239,7 +239,7 @@ cursor: pointer;
 width: 32px;
 height: 32px;
 border-radius: 8px;
-background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%);
+background: linear-gradient(135deg, #a855f7 0%, #c084fc 100%);
 display: flex;
 align-items: center;
 justify-content: center;
@@ -276,7 +276,7 @@ text-align: right;
 .product-quantity {
 font-weight: 600;
 font-size: 1.125rem;
-color: #ec4899;
+color: #a855f7;
 margin-bottom: 0.25rem;
 }
 
@@ -293,11 +293,11 @@ margin-top: 0.25rem;
 
 /* Chart */
 .chart-card {
-background: rgba(45, 55, 72, 0.5);
+background: rgba(26, 26, 26, 0.7);
 backdrop-filter: blur(10px);
 border-radius: 1rem;
 padding: 1.5rem;
-border: 1px solid rgba(107, 114, 128, 0.3);
+border: 1px solid rgba(60, 60, 60, 0.5);
 margin-bottom: 2rem;
 }
 
@@ -316,7 +316,7 @@ color: #9ca3af;
 font-size: 3rem;
 line-height: 1;
 margin-bottom: 1rem;
-color: #ec4899;
+color: #a855f7;
 display: block;
 }
 @endpush
@@ -490,11 +490,11 @@ display: block;
             datasets: [{
                 label: 'Sales (Rp)',
                 data: chartData.map(item => item.total),
-                borderColor: '#ec4899',
-                backgroundColor: 'rgba(236, 72, 153, 0.1)',
+                borderColor: '#a855f7',
+                backgroundColor: 'rgba(168, 85, 247, 0.15)',
                 tension: 0.4,
                 fill: true,
-                pointBackgroundColor: '#ec4899',
+                pointBackgroundColor: '#a855f7',
                 pointBorderColor: '#fff',
                 pointBorderWidth: 2,
                 pointRadius: 5,
@@ -509,10 +509,10 @@ display: block;
                     display: false
                 },
                 tooltip: {
-                    backgroundColor: 'rgba(30, 41, 59, 0.95)',
+                    backgroundColor: 'rgba(20, 20, 20, 0.95)',
                     titleColor: '#fff',
                     bodyColor: '#fff',
-                    borderColor: '#ec4899',
+                    borderColor: '#a855f7',
                     borderWidth: 1,
                     padding: 12,
                     displayColors: false,
@@ -531,7 +531,7 @@ display: block;
                 y: {
                     beginAtZero: true,
                     grid: {
-                        color: 'rgba(107, 114, 128, 0.2)'
+                        color: 'rgba(60, 60, 60, 0.3)'
                     },
                     ticks: {
                         color: '#9ca3af',
@@ -548,7 +548,7 @@ display: block;
                 },
                 x: {
                     grid: {
-                        color: 'rgba(107, 114, 128, 0.2)'
+                        color: 'rgba(60, 60, 60, 0.3)'
                     },
                     ticks: {
                         color: '#9ca3af'

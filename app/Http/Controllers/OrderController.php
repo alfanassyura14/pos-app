@@ -8,6 +8,7 @@ use App\Models\Product;
 use App\Models\Category;
 use App\Models\Sale;
 use App\Models\SaleDetail;
+use App\Models\Notification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -115,7 +116,27 @@ class OrderController extends Controller
 
                 // Update product stock
                 $item['product']->decrement('p_stock', $item['quantity']);
+                
+                // Check if product is now low stock after purchase
+                $updatedProduct = Product::find($item['product']->id);
+                if ($updatedProduct->p_stock <= 5 && $updatedProduct->p_stock > 0) {
+                    Notification::create([
+                        'type' => 'low_stock',
+                        'title' => 'Low Stock Alert',
+                        'message' => "Product '{$updatedProduct->p_name}' is running low on stock ({$updatedProduct->p_stock} left) after recent purchase.",
+                        'data' => ['product_id' => $updatedProduct->id, 'stock' => $updatedProduct->p_stock],
+                    ]);
+                }
             }
+
+            // Create notification for successful checkout
+            $totalItems = array_sum(array_column($request->items, 'quantity'));
+            Notification::create([
+                'type' => 'checkout_success',
+                'title' => 'Checkout Successful',
+                'message' => "Order {$saleNumber} completed successfully. Total: Rp " . number_format($total, 0, ',', '.') . " ({$totalItems} items).",
+                'data' => ['sale_id' => $sale->id, 'sale_number' => $saleNumber, 'total' => $total],
+            ]);
 
             DB::commit();
 

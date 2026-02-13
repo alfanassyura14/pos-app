@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Notification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -81,6 +82,24 @@ class MenuController extends Controller
 
         $product = Product::create($validated);
 
+        // Create notification for new menu
+        Notification::create([
+            'type' => 'new_menu',
+            'title' => 'New Menu Added',
+            'message' => "New product '{$product->p_name}' has been added to the menu.",
+            'data' => ['product_id' => $product->id],
+        ]);
+
+        // Check for low stock notification
+        if ($validated['p_stock'] <= 5) {
+            Notification::create([
+                'type' => 'low_stock',
+                'title' => 'Low Stock Alert',
+                'message' => "Product '{$product->p_name}' has low stock ({$validated['p_stock']} left).",
+                'data' => ['product_id' => $product->id, 'stock' => $validated['p_stock']],
+            ]);
+        }
+
         return redirect()->back()->with('success', 'Product created successfully!');
     }
 
@@ -113,7 +132,42 @@ class MenuController extends Controller
             $validated['p_status'] = 'In Stock';
         }
 
+        // Check for stock changes before update
+        $oldStock = $product->p_stock;
+        $newStock = $validated['p_stock'];
+        $stockChanged = $oldStock != $newStock;
+        $stockIncreased = $newStock > $oldStock;
+
         $product->update($validated);
+
+        // Create notification for menu update
+        Notification::create([
+            'type' => 'menu_update',
+            'title' => 'Menu Updated',
+            'message' => "Product '{$product->p_name}' information has been updated.",
+            'data' => ['product_id' => $product->id],
+        ]);
+
+        // Create notification for stock increase
+        if ($stockChanged && $stockIncreased) {
+            $stockDiff = $newStock - $oldStock;
+            Notification::create([
+                'type' => 'stock_update',
+                'title' => 'Stock Added',
+                'message' => "Stock added to '{$product->p_name}': +{$stockDiff} items (Total: {$newStock}).",
+                'data' => ['product_id' => $product->id, 'old_stock' => $oldStock, 'new_stock' => $newStock],
+            ]);
+        }
+
+        // Check for low stock notification
+        if ($newStock <= 5 && $newStock > 0) {
+            Notification::create([
+                'type' => 'low_stock',
+                'title' => 'Low Stock Alert',
+                'message' => "Product '{$product->p_name}' is running low on stock ({$newStock} left).",
+                'data' => ['product_id' => $product->id, 'stock' => $newStock],
+            ]);
+        }
 
         return redirect()->back()->with('success', 'Product updated successfully!');
     }

@@ -6,6 +6,9 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ReportController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,5 +61,24 @@ Route::middleware('auth')->group(function () {
     // Report Routes
     Route::get('/reports', [ReportController::class, 'index'])->name('reports');
     Route::get('/reports/sales', [ReportController::class, 'sales'])->name('reports.sales');
+    Route::get('/reports/sales/export', [ReportController::class, 'exportExcel'])->name('reports.sales.export');
+
+    // Profile Routes
+    Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
+
+    // Notification Routes
+    Route::get('/notifications', [NotificationController::class, 'index'])->name('notifications.index');
+    Route::post('/notifications/{id}/read', [NotificationController::class, 'markAsRead'])->name('notifications.read');
+    Route::post('/notifications/read-all', [NotificationController::class, 'markAllAsRead'])->name('notifications.readAll');
+    Route::match(['post', 'delete'], '/notifications/delete-read', [NotificationController::class, 'deleteAllRead'])->name('notifications.deleteRead');
+    Route::match(['post', 'delete'], '/notifications/{id}', [NotificationController::class, 'delete'])->name('notifications.delete');
+
+    // User Management Routes
+    Route::get('/users', [UserController::class, 'index'])->name('users.index');
+    Route::get('/users/search', [UserController::class, 'search'])->name('users.search');
+    Route::post('/users', [UserController::class, 'store'])->name('users.store');
+    Route::put('/users/{id}', [UserController::class, 'update'])->name('users.update');
+    Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('users.destroy');
+    Route::post('/users/{id}/menu-access', [UserController::class, 'updateMenuAccess'])->name('users.updateMenuAccess');
 });
 
