@@ -66,10 +66,10 @@
     .search-input {
         width: 100%;
         padding: 0.875rem 1rem 0.875rem 3rem;
-        background: rgba(26, 26, 26, 0.7);
-        border: 1px solid rgba(60, 60, 60, 0.5);
+        background: var(--input-bg);
+        border: 1px solid var(--input-border);
         border-radius: 12px;
-        color: white;
+        color: var(--text-primary);
         font-size: 0.875rem;
         transition: all 0.3s;
     }
@@ -77,11 +77,10 @@
     .search-input:focus {
         outline: none;
         border-color: #a855f7;
-        background: rgba(26, 26, 26, 0.9);
     }
 
     .search-input::placeholder {
-        color: #9ca3af;
+        color: var(--text-tertiary);
     }
 
     .search-icon {
@@ -89,7 +88,7 @@
         left: 1rem;
         top: 50%;
         transform: translateY(-50%);
-        color: #9ca3af;
+        color: var(--text-tertiary);
         width: 20px;
         height: 20px;
     }
@@ -102,9 +101,9 @@
     }
 
     .category-card {
-        background: rgba(26, 26, 26, 0.7);
+        background: var(--card-bg);
         backdrop-filter: blur(10px);
-        border: 2px solid rgba(60, 60, 60, 0.5);
+        border: 2px solid var(--card-border);
         border-radius: 12px;
         padding: 1rem;
         cursor: pointer;
@@ -118,7 +117,7 @@
 
     .category-card:hover {
         border-color: #a855f7;
-        background: rgba(26, 26, 26, 0.9);
+        background: var(--card-hover);
         transform: translateY(-2px);
     }
 
@@ -154,7 +153,7 @@
 
     .category-count {
         font-size: 0.75rem;
-        color: #9ca3af;
+        color: var(--text-secondary);
     }
 
     /* Products Grid */
@@ -171,9 +170,9 @@
     }
 
     .product-card {
-        background: rgba(26, 26, 26, 0.7);
+        background: var(--card-bg);
         backdrop-filter: blur(10px);
-        border: 1px solid rgba(60, 60, 60, 0.5);
+        border: 1px solid var(--card-border);
         border-radius: 12px;
         padding: 1rem;
         cursor: pointer;
@@ -187,7 +186,7 @@
     .product-card:hover {
         border-color: #a855f7;
         transform: translateY(-2px);
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 4px 15px var(--shadow-hover);
     }
 
     .product-image {
@@ -216,7 +215,7 @@
 
     .product-category {
         font-size: 0.75rem;
-        color: #9ca3af;
+        color: var(--text-secondary);
         margin-bottom: 0.5rem;
     }
 
@@ -251,9 +250,9 @@
 
     /* Right Panel - Checkout */
     .checkout-panel {
-        background: rgba(26, 26, 26, 0.7);
+        background: var(--card-bg);
         backdrop-filter: blur(10px);
-        border: 1px solid rgba(60, 60, 60, 0.5);
+        border: 1px solid var(--card-border);
         border-radius: 12px;
         padding: 1.5rem;
         display: flex;
@@ -307,10 +306,10 @@
         flex: 1;
         min-width: 0;
         padding: 0.5rem 0.75rem;
-        background: rgba(20, 20, 20, 0.7);
-        border: 1px solid rgba(60, 60, 60, 0.5);
+        background: var(--input-bg);
+        border: 1px solid var(--input-border);
         border-radius: 8px;
-        color: white;
+        color: var(--text-primary);
         font-size: 0.875rem;
         box-sizing: border-box;
     }
@@ -355,7 +354,7 @@
         display: flex;
         gap: 0.75rem;
         padding: 0.75rem;
-        background: rgba(20, 20, 20, 0.7);
+        background: var(--card-bg-secondary);
         border-radius: 8px;
         width: 100%;
         box-sizing: border-box;
@@ -397,9 +396,9 @@
         width: 24px;
         height: 24px;
         border-radius: 4px;
-        background: rgba(60, 60, 60, 0.5);
+        background: var(--nav-item-bg);
         border: none;
-        color: white;
+        color: var(--text-primary);
         cursor: pointer;
         display: flex;
         align-items: center;
@@ -409,7 +408,7 @@
     }
 
     .qty-btn:hover {
-        background: rgba(80, 80, 80, 0.6);
+        background: var(--nav-item-hover);
     }
 
     .qty-display {
@@ -441,7 +440,7 @@
     .empty-cart {
         text-align: center;
         padding: 2rem;
-        color: #9ca3af;
+        color: var(--text-secondary);
     }
 
     /* Discount Section */
@@ -474,7 +473,7 @@
     }
 
     .discount-type-option label {
-        color: rgba(255, 255, 255, 0.9);
+        color: var(--text-primary);
         font-size: 0.875rem;
         cursor: pointer;
         user-select: none;
@@ -490,10 +489,10 @@
         flex: 1;
         min-width: 0;
         padding: 0.75rem;
-        background: rgba(20, 20, 20, 0.7);
-        border: 1px solid rgba(60, 60, 60, 0.5);
+        background: var(--input-bg);
+        border: 1px solid var(--input-border);
         border-radius: 8px;
-        color: white;
+        color: var(--text-primary);
         font-size: 0.875rem;
         box-sizing: border-box;
     }
@@ -505,7 +504,7 @@
 
     .apply-btn {
         padding: 0.75rem 1.25rem;
-        background: rgba(168, 85, 247, 0.2);
+        background: rgba(168, 85, 247, 0.15);
         border: 1px solid #a855f7;
         border-radius: 8px;
         color: #a855f7;
@@ -517,7 +516,7 @@
     }
 
     .apply-btn:hover {
-        background: rgba(168, 85, 247, 0.3);
+        background: rgba(168, 85, 247, 0.25);
     }
 
     /* Summary */
@@ -526,7 +525,7 @@
         flex-direction: column;
         gap: 0.75rem;
         padding-top: 1rem;
-        border-top: 1px solid rgba(60, 60, 60, 0.5);
+        border-top: 1px solid var(--card-border);
         width: 100%;
     }
 
@@ -541,7 +540,7 @@
         font-weight: bold;
         color: #a855f7;
         padding-top: 0.75rem;
-        border-top: 1px solid rgba(60, 60, 60, 0.5);
+        border-top: 1px solid var(--card-border);
     }
 
     /* Payment Method */
@@ -555,10 +554,10 @@
         flex: 1;
         min-width: 0;
         padding: 0.75rem;
-        background: rgba(20, 20, 20, 0.7);
-        border: 2px solid rgba(60, 60, 60, 0.5);
+        background: var(--card-bg-secondary);
+        border: 2px solid var(--card-border);
         border-radius: 8px;
-        color: #9ca3af;
+        color: var(--text-secondary);
         font-size: 0.875rem;
         cursor: pointer;
         text-align: center;
@@ -568,8 +567,8 @@
 
     .payment-method.active {
         border-color: #a855f7;
-        color: white;
-        background: rgba(168, 85, 247, 0.2);
+        color: var(--text-primary);
+        background: rgba(168, 85, 247, 0.15);
     }
 
     /* Checkout Button */
@@ -605,13 +604,13 @@
     .qr-section {
         text-align: center;
         padding: 1rem;
-        background: rgba(20, 20, 20, 0.7);
+        background: var(--card-bg-secondary);
         border-radius: 8px;
     }
 
     .qr-label {
         font-size: 0.75rem;
-        color: #9ca3af;
+        color: var(--text-secondary);
         margin-bottom: 0.5rem;
     }
 

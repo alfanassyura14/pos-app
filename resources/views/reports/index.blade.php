@@ -20,10 +20,10 @@
 
     .report-tab {
         padding: 1rem 2rem;
-        background: rgba(55, 65, 81, 0.3);
-        border: 1px solid rgba(107, 114, 128, 0.3);
+        background: var(--card-bg);
+        border: 1px solid var(--card-border);
         border-radius: 12px;
-        color: rgba(255, 255, 255, 0.7);
+        color: var(--text-secondary);
         font-size: 0.875rem;
         font-weight: 500;
         cursor: pointer;
@@ -33,8 +33,8 @@
     }
 
     .report-tab:hover {
-        background: rgba(55, 65, 81, 0.5);
-        color: white;
+        background: var(--card-hover);
+        color: var(--text-primary);
     }
 
     .report-tab.active {
@@ -50,15 +50,15 @@
     }
 
     .report-card {
-        background: rgba(45, 55, 72, 0.5);
+        background: var(--card-bg);
         backdrop-filter: blur(10px);
-        border: 1px solid rgba(107, 114, 128, 0.3);
+        border: 1px solid var(--card-border);
         border-radius: 16px;
         padding: 2rem;
         cursor: pointer;
         transition: all 0.3s;
         text-decoration: none;
-        color: white;
+        color: var(--text-primary);
     }
 
     .report-card:hover {
@@ -91,7 +91,7 @@
     }
 
     .report-card p {
-        color: rgba(255, 255, 255, 0.7);
+        color: var(--text-secondary);
         font-size: 0.875rem;
         line-height: 1.6;
     }

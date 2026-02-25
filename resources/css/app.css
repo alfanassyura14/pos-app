@@ -1,4 +1,60 @@
 /* Main Styles */
+
+/* Theme Variables */
+:root {
+    /* Light Mode Colors */
+    --bg-primary: #ffffff;
+    --bg-secondary: #f3f4f6;
+    --bg-gradient-start: #f9fafb;
+    --bg-gradient-end: #e5e7eb;
+    --text-primary: #111827;
+    --text-secondary: #6b7280;
+    --text-tertiary: #9ca3af;
+    --border-color: #e5e7eb;
+    --card-bg: #ffffff;
+    --card-bg-secondary: #f9fafb;
+    --card-hover: #f3f4f6;
+    --card-border: #e5e7eb;
+    --sidebar-bg: rgba(255, 255, 255, 0.95);
+    --sidebar-gradient-start: rgba(255, 255, 255, 0.95);
+    --sidebar-gradient-end: rgba(249, 250, 251, 0.95);
+    --nav-item-bg: rgba(243, 244, 246, 0.8);
+    --nav-item-hover: rgba(229, 231, 235, 0.9);
+    --nav-item-text: #6b7280;
+    --topbar-bg: #ffffff;
+    --input-bg: #ffffff;
+    --input-border: #d1d5db;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --shadow-hover: rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="dark"] {
+    /* Dark Mode Colors */
+    --bg-primary: #0a0a0a;
+    --bg-secondary: #1a1a1a;
+    --bg-gradient-start: #000000;
+    --bg-gradient-end: #1a1a1a;
+    --text-primary: #ffffff;
+    --text-secondary: #9ca3af;
+    --text-tertiary: #6b7280;
+    --border-color: #374151;
+    --card-bg: rgba(26, 26, 26, 0.8);
+    --card-bg-secondary: rgba(20, 20, 20, 0.7);
+    --card-hover: rgba(30, 30, 30, 0.9);
+    --card-border: rgba(60, 60, 60, 0.5);
+    --sidebar-bg: rgba(0, 0, 0, 0.95);
+    --sidebar-gradient-start: rgba(26, 26, 26, 0.95);
+    --sidebar-gradient-end: rgba(0, 0, 0, 0.95);
+    --nav-item-bg: rgba(60, 60, 60, 0.4);
+    --nav-item-hover: rgba(80, 80, 80, 0.5);
+    --nav-item-text: #9ca3af;
+    --topbar-bg: transparent;
+    --input-bg: rgba(30, 30, 30, 0.8);
+    --input-border: #374151;
+    --shadow-color: rgba(0, 0, 0, 0.5);
+    --shadow-hover: rgba(0, 0, 0, 0.7);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -7,7 +63,8 @@
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+    background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
     min-height: 100vh;
-    color: #fff;
+    color: var(--text-primary);
+    transition: background 0.3s ease, color 0.3s ease;
 }

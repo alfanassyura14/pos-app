@@ -17,7 +17,7 @@
     .users-header h2 {
         font-size: 1.5rem;
         font-weight: bold;
-        color: white;
+        color: var(--text-primary);
     }
 
     .add-user-btn {
@@ -50,8 +50,8 @@
     }
 
     .user-card {
-        background: rgba(26, 26, 26, 0.8);
-        border: 1px solid rgba(60, 60, 60, 0.5);
+        background: var(--card-bg);
+        border: 1px solid var(--card-border);
         border-radius: 12px;
         padding: 1.5rem;
         transition: all 0.3s;
@@ -68,7 +68,7 @@
         align-items: center;
         margin-bottom: 1rem;
         padding-bottom: 1rem;
-        border-bottom: 1px solid rgba(60, 60, 60, 0.5);
+        border-bottom: 1px solid var(--card-border);
     }
 
     .user-info {
@@ -80,12 +80,12 @@
     .user-name {
         font-size: 1.125rem;
         font-weight: 600;
-        color: white;
+        color: var(--text-primary);
     }
 
     .user-email {
         font-size: 0.875rem;
-        color: #9ca3af;
+        color: var(--text-secondary);
     }
 
     .user-role {
@@ -163,14 +163,14 @@
         justify-content: space-between;
         align-items: center;
         padding: 0.75rem;
-        background: rgba(20, 20, 20, 0.6);
-        border: 1px solid rgba(60, 60, 60, 0.5);
+        background: var(--card-bg-secondary);
+        border: 1px solid var(--card-border);
         border-radius: 8px;
     }
 
     .menu-label {
         font-size: 0.875rem;
-        color: #e5e7eb;
+        color: var(--text-primary);
         font-weight: 500;
     }
 
@@ -194,10 +194,10 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background: rgba(60, 60, 60, 0.6);
+        background: var(--nav-item-bg);
         transition: 0.3s;
         border-radius: 24px;
-        border: 1px solid rgba(60, 60, 60, 0.8);
+        border: 1px solid var(--card-border);
     }
 
     .toggle-slider:before {
@@ -242,7 +242,7 @@
     }
 
     .modal-box {
-        background: rgba(26, 26, 26, 0.95);
+        background: var(--card-bg);
         border: 1px solid rgba(168, 85, 247, 0.3);
         border-radius: 16px;
         padding: 2rem;
@@ -250,7 +250,7 @@
         width: 90%;
         max-height: 90vh;
         overflow-y: auto;
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 20px 60px var(--shadow-color);
         animation: slideUp 0.3s ease-out;
     }
 
@@ -264,13 +264,13 @@
     .modal-title {
         font-size: 1.25rem;
         font-weight: bold;
-        color: white;
+        color: var(--text-primary);
     }
 
     .modal-close {
         background: none;
         border: none;
-        color: #9ca3af;
+        color: var(--text-secondary);
         font-size: 1.5rem;
         cursor: pointer;
         padding: 0;
@@ -296,7 +296,7 @@
         display: block;
         font-size: 0.875rem;
         font-weight: 600;
-        color: #e5e7eb;
+        color: var(--text-primary);
         margin-bottom: 0.5rem;
     }
 
@@ -304,10 +304,10 @@
     .form-select {
         width: 100%;
         padding: 0.75rem 1rem;
-        background: rgba(20, 20, 20, 0.8);
-        border: 1px solid rgba(60, 60, 60, 0.5);
+        background: var(--input-bg);
+        border: 1px solid var(--input-border);
         border-radius: 10px;
-        color: white;
+        color: var(--text-primary);
         font-size: 0.875rem;
         transition: all 0.3s;
     }
@@ -321,7 +321,7 @@
 
     .form-hint {
         font-size: 0.75rem;
-        color: #6b7280;
+        color: var(--text-tertiary);
         margin-top: 0.25rem;
     }
 
@@ -343,13 +343,13 @@
     }
 
     .btn-cancel {
-        background: rgba(60, 60, 60, 0.5);
-        color: white;
-        border: 1px solid rgba(60, 60, 60, 0.5);
+        background: var(--nav-item-bg);
+        color: var(--text-primary);
+        border: 1px solid var(--card-border);
     }
 
     .btn-cancel:hover {
-        background: rgba(80, 80, 80, 0.6);
+        background: var(--nav-item-hover);
         transform: translateY(-1px);
     }
 
@@ -368,7 +368,7 @@
         position: fixed;
         top: 20px;
         right: 20px;
-        background: rgba(26, 26, 26, 0.95);
+        background: var(--card-bg);
         border: 1px solid rgba(168, 85, 247, 0.3);
         border-radius: 10px;
         padding: 1rem 1.5rem;
@@ -376,7 +376,7 @@
         align-items: center;
         gap: 0.75rem;
         z-index: 11000;
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 10px 40px var(--shadow-color);
         animation: slideInRight 0.3s ease-out;
     }
 
@@ -408,7 +408,7 @@
     }
 
     .toast-message {
-        color: white;
+        color: var(--text-primary);
         font-size: 0.875rem;
         font-weight: 500;
     }
@@ -546,10 +546,10 @@
     .search-input {
         width: 100%;
         padding: 0.875rem 1rem 0.875rem 3rem;
-        background: rgba(20, 20, 20, 0.8);
-        border: 1px solid rgba(60, 60, 60, 0.5);
+        background: var(--input-bg);
+        border: 1px solid var(--input-border);
         border-radius: 12px;
-        color: white;
+        color: var(--text-primary);
         font-size: 0.875rem;
         transition: all 0.3s;
     }
@@ -561,7 +561,7 @@
     }
 
     .search-input::placeholder {
-        color: #6b7280;
+        color: var(--text-tertiary);
     }
 
     .search-icon {

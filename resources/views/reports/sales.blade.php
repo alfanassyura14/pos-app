@@ -24,12 +24,12 @@
 
     /* Date Range Filter - Same style as Dashboard */
     .date-range-filter {
-        background: rgba(26, 26, 26, 0.7);
+        background: var(--card-bg);
         backdrop-filter: blur(10px);
         border-radius: 1rem;
         padding: 1.5rem;
         margin-bottom: 2rem;
-        border: 1px solid rgba(60, 60, 60, 0.5);
+        border: 1px solid var(--card-border);
     }
 
     .filter-header {
@@ -71,10 +71,10 @@
         width: 100%;
         max-width: 300px;
         padding: 0.75rem 1rem;
-        background: rgba(20, 20, 20, 0.7);
-        border: 1px solid rgba(60, 60, 60, 0.5);
+        background: var(--input-bg);
+        border: 1px solid var(--input-border);
         border-radius: 8px;
-        color: white;
+        color: var(--text-primary);
         font-size: 0.875rem;
         font-weight: 500;
         cursor: pointer;
@@ -85,17 +85,16 @@
     .filter-select:focus {
         outline: none;
         border-color: #a855f7;
-        background: rgba(20, 20, 20, 0.9);
     }
 
     .filter-select option {
-        background: #1a1a1a;
-        color: white;
+        background: var(--input-bg);
+        color: var(--text-primary);
     }
 
     .custom-range {
         padding-top: 1rem;
-        border-top: 1px solid rgba(60, 60, 60, 0.5);
+        border-top: 1px solid var(--card-border);
         margin-top: 1rem;
     }
 
@@ -118,17 +117,17 @@
     .filter-label {
         display: block;
         font-size: 0.875rem;
-        color: #9ca3af;
+        color: var(--text-secondary);
         margin-bottom: 0.5rem;
     }
 
     .filter-input {
         width: 100%;
         padding: 0.75rem 1rem;
-        background: rgba(20, 20, 20, 0.7);
-        border: 1px solid rgba(60, 60, 60, 0.5);
+        background: var(--input-bg);
+        border: 1px solid var(--input-border);
         border-radius: 8px;
-        color: white;
+        color: var(--text-primary);
         font-size: 0.875rem;
         transition: all 0.3s;
     }
@@ -136,11 +135,10 @@
     .filter-input:focus {
         outline: none;
         border-color: #a855f7;
-        background: rgba(20, 20, 20, 0.9);
     }
 
     .filter-input::placeholder {
-        color: rgba(255, 255, 255, 0.4);
+        color: var(--text-tertiary);
     }
 
     .filter-btn {
@@ -162,12 +160,12 @@
 
     /* Search Filters Section - Always visible */
     .search-filters {
-        background: rgba(26, 26, 26, 0.7);
+        background: var(--card-bg);
         backdrop-filter: blur(10px);
         border-radius: 1rem;
         padding: 1.5rem;
         margin-bottom: 2rem;
-        border: 1px solid rgba(60, 60, 60, 0.5);
+        border: 1px solid var(--card-border);
     }
 
     .search-grid {
@@ -178,9 +176,9 @@
     }
 
     .table-section {
-        background: rgba(26, 26, 26, 0.7);
+        background: var(--card-bg);
         backdrop-filter: blur(10px);
-        border: 1px solid rgba(60, 60, 60, 0.5);
+        border: 1px solid var(--card-border);
         border-radius: 12px;
         padding: 1.5rem;
         overflow: hidden;
@@ -199,7 +197,7 @@
     }
 
     .sales-table thead {
-        background: rgba(20, 20, 20, 0.7);
+        background: var(--card-bg-secondary);
     }
 
     .sales-table th {
@@ -207,8 +205,8 @@
         text-align: left;
         font-size: 0.875rem;
         font-weight: 600;
-        color: rgba(255, 255, 255, 0.9);
-        border-bottom: 1px solid rgba(60, 60, 60, 0.5);
+        color: var(--text-primary);
+        border-bottom: 1px solid var(--card-border);
     }
 
     .sales-table th:first-child {
@@ -222,8 +220,8 @@
     .sales-table td {
         padding: 1rem;
         font-size: 0.875rem;
-        color: rgba(255, 255, 255, 0.9);
-        border-bottom: 1px solid rgba(60, 60, 60, 0.3);
+        color: var(--text-primary);
+        border-bottom: 1px solid var(--card-border);
     }
 
     .sales-table tbody tr {
@@ -231,7 +229,7 @@
     }
 
     .sales-table tbody tr:hover {
-        background: rgba(40, 40, 40, 0.4);
+        background: var(--card-hover);
     }
 
     .sales-table tbody tr:last-child td {
@@ -279,7 +277,7 @@
     .empty-state {
         text-align: center;
         padding: 3rem;
-        color: rgba(255, 255, 255, 0.5);
+        color: var(--text-secondary);
     }
 
     .empty-state svg {
@@ -299,19 +297,19 @@
     .pagination a,
     .pagination span {
         padding: 0.5rem 1rem;
-        background: rgba(55, 65, 81, 0.3);
-        border: 1px solid rgba(107, 114, 128, 0.3);
+        background: var(--nav-item-bg);
+        border: 1px solid var(--card-border);
         border-radius: 6px;
-        color: rgba(255, 255, 255, 0.7);
+        color: var(--text-secondary);
         font-size: 0.875rem;
         text-decoration: none;
         transition: all 0.3s;
     }
 
     .pagination a:hover {
-        background: rgba(55, 65, 81, 0.5);
+        background: var(--card-hover);
         border-color: #ec4899;
-        color: white;
+        color: var(--text-primary);
     }
 
     .pagination .active {

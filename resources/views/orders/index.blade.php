@@ -25,10 +25,10 @@
 
     .search-input {
         padding: 0.75rem 1rem 0.75rem 3rem;
-        background: rgba(26, 26, 26, 0.7);
-        border: 1px solid rgba(60, 60, 60, 0.5);
+        background: var(--input-bg);
+        border: 1px solid var(--input-border);
         border-radius: 10px;
-        color: white;
+        color: var(--text-primary);
         font-size: 0.875rem;
         width: 300px;
         position: relative;
@@ -65,7 +65,7 @@
         display: flex;
         gap: 0.5rem;
         margin-bottom: 1.5rem;
-        border-bottom: 2px solid rgba(60, 60, 60, 0.5);
+        border-bottom: 2px solid var(--card-border);
         padding-bottom: 0.5rem;
     }
 
@@ -73,7 +73,7 @@
         padding: 0.75rem 1.5rem;
         background: transparent;
         border: none;
-        color: #9ca3af;
+        color: var(--text-secondary);
         font-size: 0.875rem;
         font-weight: 500;
         cursor: pointer;
@@ -82,13 +82,14 @@
     }
 
     .tab.active {
-        background: rgba(168, 85, 247, 0.2);
+        background: rgba(168, 85, 247, 0.15);
         color: #a855f7;
+        border: 1px solid rgba(168, 85, 247, 0.3);
     }
 
     .tab:hover:not(.active) {
-        color: white;
-        background: rgba(60, 60, 60, 0.5);
+        color: var(--text-primary);
+        background: var(--card-hover);
     }
 
     /* Orders Grid */
@@ -105,8 +106,8 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.7);
-        backdrop-filter: blur(4px);
+        background: rgba(0, 0, 0, 0.75);
+        backdrop-filter: blur(8px);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -115,13 +116,13 @@
     }
 
     .confirm-modal {
-        background: rgba(26, 26, 26, 0.95);
-        border: 1px solid rgba(168, 85, 247, 0.3);
+        background: var(--card-bg);
+        border: 1px solid var(--card-border);
         border-radius: 16px;
         padding: 2rem;
         max-width: 400px;
         width: 90%;
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 20px 60px var(--shadow-color);
         animation: slideUp 0.3s ease-out;
     }
 
@@ -140,14 +141,14 @@
     .confirm-modal-title {
         font-size: 1.25rem;
         font-weight: bold;
-        color: white;
+        color: var(--text-primary);
         text-align: center;
         margin-bottom: 0.75rem;
     }
 
     .confirm-modal-message {
         font-size: 0.875rem;
-        color: #9ca3af;
+        color: var(--text-secondary);
         text-align: center;
         margin-bottom: 2rem;
         line-height: 1.5;
@@ -170,13 +171,13 @@
     }
 
     .cancel-btn {
-        background: rgba(60, 60, 60, 0.5);
-        color: white;
-        border: 1px solid rgba(60, 60, 60, 0.5);
+        background: var(--nav-item-bg);
+        color: var(--text-primary);
+        border: 1px solid var(--card-border);
     }
 
     .cancel-btn:hover {
-        background: rgba(80, 80, 80, 0.6);
+        background: var(--nav-item-hover);
         transform: translateY(-1px);
     }
 
@@ -211,9 +212,9 @@
     }
 
     .order-card {
-        background: rgba(26, 26, 26, 0.7);
+        background: var(--card-bg);
         backdrop-filter: blur(10px);
-        border: 1px solid rgba(60, 60, 60, 0.5);
+        border: 1px solid var(--card-border);
         border-radius: 12px;
         padding: 1.5rem;
         transition: all 0.3s;
@@ -222,7 +223,7 @@
     .order-card:hover {
         border-color: #a855f7;
         transform: translateY(-2px);
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 4px 15px var(--shadow-hover);
     }
 
     .order-header {
@@ -231,7 +232,7 @@
         align-items: flex-start;
         margin-bottom: 1rem;
         padding-bottom: 1rem;
-        border-bottom: 1px solid rgba(60, 60, 60, 0.5);
+        border-bottom: 1px solid var(--card-border);
     }
 
     .order-number {
@@ -243,7 +244,7 @@
 
     .order-customer {
         font-size: 0.875rem;
-        color: #9ca3af;
+        color: var(--text-secondary);
     }
 
     .order-status {
@@ -254,30 +255,34 @@
     }
 
     .status-open {
-        background: rgba(59, 130, 246, 0.2);
+        background: rgba(59, 130, 246, 0.15);
         color: #3b82f6;
+        border: 1px solid rgba(59, 130, 246, 0.3);
     }
 
     .status-in_process {
-        background: rgba(245, 158, 11, 0.2);
+        background: rgba(245, 158, 11, 0.15);
         color: #f59e0b;
+        border: 1px solid rgba(245, 158, 11, 0.3);
     }
 
     .status-completed {
-        background: rgba(16, 185, 129, 0.2);
+        background: rgba(16, 185, 129, 0.15);
         color: #10b981;
+        border: 1px solid rgba(16, 185, 129, 0.3);
     }
 
     .status-cancelled {
-        background: rgba(239, 68, 68, 0.2);
+        background: rgba(239, 68, 68, 0.15);
         color: #ef4444;
+        border: 1px solid rgba(239, 68, 68, 0.3);
     }
 
     .order-meta {
         display: flex;
         justify-content: space-between;
         font-size: 0.75rem;
-        color: #9ca3af;
+        color: var(--text-secondary);
         margin-bottom: 1rem;
     }
 
@@ -297,7 +302,7 @@
     }
 
     .item-qty {
-        color: #9ca3af;
+        color: var(--text-secondary);
         margin-right: 0.5rem;
     }
 
@@ -312,7 +317,7 @@
 
     .order-summary {
         padding-top: 1rem;
-        border-top: 1px solid rgba(60, 60, 60, 0.5);
+        border-top: 1px solid var(--card-border);
         margin-bottom: 1rem;
     }
 
@@ -329,7 +334,7 @@
         color: #a855f7;
         margin-top: 0.5rem;
         padding-top: 0.5rem;
-        border-top: 1px solid rgba(60, 60, 60, 0.5);
+        border-top: 1px solid var(--card-border);
     }
 
     .order-actions {
@@ -353,23 +358,23 @@
     }
 
     .edit-btn {
-        background: rgba(59, 130, 246, 0.2);
+        background: rgba(59, 130, 246, 0.15);
         color: #3b82f6;
         border: 1px solid rgba(59, 130, 246, 0.3);
     }
 
     .edit-btn:hover {
-        background: rgba(59, 130, 246, 0.3);
+        background: rgba(59, 130, 246, 0.25);
     }
 
     .delete-btn {
-        background: rgba(239, 68, 68, 0.2);
+        background: rgba(239, 68, 68, 0.15);
         color: #ef4444;
         border: 1px solid rgba(239, 68, 68, 0.3);
     }
 
     .delete-btn:hover {
-        background: rgba(239, 68, 68, 0.3);
+        background: rgba(239, 68, 68, 0.25);
     }
 
     .pay-btn {
@@ -385,7 +390,7 @@
     .empty-state {
         text-align: center;
         padding: 4rem 2rem;
-        color: #9ca3af;
+        color: var(--text-secondary);
     }
 
     .empty-state svg {

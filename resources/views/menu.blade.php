@@ -44,9 +44,9 @@
     }
 
     .category-card {
-        background: rgba(26, 26, 26, 0.7);
+        background: var(--card-bg);
         backdrop-filter: blur(10px);
-        border: 1px solid rgba(60, 60, 60, 0.5);
+        border: 1px solid var(--card-border);
         border-radius: 16px;
         padding: 1.5rem;
         text-align: center;
@@ -56,9 +56,9 @@
     }
 
     .category-card:hover {
-        background: rgba(40, 40, 40, 0.7);
+        background: var(--card-hover);
         transform: translateY(-4px);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 8px 20px var(--shadow-hover);
     }
 
     .category-card.active {
@@ -91,7 +91,7 @@
 
     .category-count {
         font-size: 0.75rem;
-        color: #9ca3af;
+        color: var(--text-secondary);
     }
 
     .category-card.active .category-count {
@@ -107,9 +107,9 @@
     }
 
     .menu-tab {
-        background: rgba(26, 26, 26, 0.7);
-        border: 1px solid rgba(60, 60, 60, 0.5);
-        color: #9ca3af;
+        background: var(--card-bg);
+        border: 1px solid var(--card-border);
+        color: var(--text-secondary);
         padding: 0.75rem 1.5rem;
         border-radius: 12px;
         cursor: pointer;
@@ -124,13 +124,14 @@
     }
 
     .menu-tab:hover:not(.active) {
-        background: rgba(40, 40, 40, 0.7);
-        color: white;
+        background: var(--card-hover);
+        color: var(--text-primary);
     }
 
     /* Products Table */
     .table-container {
-        background: rgba(26, 26, 26, 0.5);
+        background: var(--card-bg);
+        border: 1px solid var(--card-border);
         border-radius: 16px;
         overflow: hidden;
     }
@@ -141,20 +142,20 @@
     }
 
     .products-table thead {
-        background: rgba(20, 20, 20, 0.7);
+        background: var(--card-bg-secondary);
     }
 
     .products-table th {
         padding: 1rem;
         text-align: left;
         font-weight: 600;
-        color: #9ca3af;
+        color: var(--text-secondary);
         font-size: 0.875rem;
     }
 
     .products-table td {
         padding: 1rem;
-        border-top: 1px solid rgba(60, 60, 60, 0.3);
+        border-top: 1px solid var(--card-border);
     }
 
     .products-table tbody tr {
@@ -162,7 +163,7 @@
     }
 
     .products-table tbody tr:hover {
-        background: rgba(40, 40, 40, 0.4);
+        background: var(--card-hover);
     }
 
     .product-info {
@@ -176,7 +177,7 @@
         height: 60px;
         border-radius: 12px;
         object-fit: cover;
-        background: rgba(60, 60, 60, 0.5);
+        background: var(--nav-item-bg);
     }
 
     .product-details h3 {
@@ -186,7 +187,7 @@
 
     .product-details p {
         font-size: 0.75rem;
-        color: #9ca3af;
+        color: var(--text-secondary);
     }
 
     .status-badge {
@@ -217,9 +218,9 @@
     }
 
     .icon-btn {
-        background: rgba(60, 60, 60, 0.5);
-        border: none;
-        color: white;
+        background: var(--nav-item-bg);
+        border: 1px solid var(--card-border);
+        color: var(--text-primary);
         width: 36px;
         height: 36px;
         border-radius: 8px;
@@ -231,7 +232,7 @@
     }
 
     .icon-btn:hover {
-        background: rgba(80, 80, 80, 0.6);
+        background: var(--nav-item-hover);
     }
 
     .icon-btn.edit:hover {
@@ -262,15 +263,15 @@
     }
 
     .modal-content {
-        background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+        background: var(--card-bg);
         border-radius: 20px;
         padding: 2rem;
         max-width: 500px;
         width: 90%;
         max-height: 90vh;
         overflow-y: auto;
-        border: 1px solid rgba(60, 60, 60, 0.5);
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+        border: 1px solid var(--card-border);
+        box-shadow: 0 20px 60px var(--shadow-color);
     }
 
     .modal-header {
@@ -286,9 +287,9 @@
     }
 
     .close-btn {
-        background: rgba(60, 60, 60, 0.5);
-        border: none;
-        color: white;
+        background: var(--nav-item-bg);
+        border: 1px solid var(--card-border);
+        color: var(--text-primary);
         width: 36px;
         height: 36px;
         border-radius: 50%;
@@ -301,6 +302,8 @@
 
     .close-btn:hover {
         background: #ef4444;
+        color: white;
+        border-color: #ef4444;
     }
 
     .form-group {
@@ -311,7 +314,7 @@
         display: block;
         margin-bottom: 0.5rem;
         font-weight: 500;
-        color: #e5e7eb;
+        color: var(--text-primary);
     }
 
     .form-group input,
@@ -319,10 +322,10 @@
     .form-group textarea {
         width: 100%;
         padding: 0.75rem;
-        background: rgba(20, 20, 20, 0.7);
-        border: 1px solid rgba(60, 60, 60, 0.5);
+        background: var(--input-bg);
+        border: 1px solid var(--input-border);
         border-radius: 8px;
-        color: white;
+        color: var(--text-primary);
         font-size: 0.875rem;
         transition: all 0.3s;
     }
@@ -341,8 +344,8 @@
     }
 
     .image-upload {
-        background: rgba(20, 20, 20, 0.5);
-        border: 2px dashed rgba(80, 80, 80, 0.6);
+        background: var(--card-bg-secondary);
+        border: 2px dashed var(--card-border);
         border-radius: 12px;
         padding: 2rem;
         text-align: center;
@@ -352,7 +355,7 @@
 
     .image-upload:hover {
         border-color: #a855f7;
-        background: rgba(30, 30, 30, 0.6);
+        background: var(--card-hover);
     }
 
     .image-upload.has-image {
@@ -452,12 +455,13 @@
     }
 
     .btn-cancel {
-        background: rgba(60, 60, 60, 0.5);
-        color: white;
+        background: var(--nav-item-bg);
+        border: 1px solid var(--card-border);
+        color: var(--text-primary);
     }
 
     .btn-cancel:hover {
-        background: rgba(80, 80, 80, 0.6);
+        background: var(--nav-item-hover);
     }
 
     .btn-save {

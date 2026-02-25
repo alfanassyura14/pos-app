@@ -7,22 +7,23 @@ $pageTitle = 'Dashboard';
 @push('styles')
 /* Date Range Filter */
 .date-range-filter {
-background: rgba(26, 26, 26, 0.7);
+background: var(--card-bg);
 backdrop-filter: blur(10px);
 border-radius: 1rem;
 padding: 1.5rem;
 margin-bottom: 2rem;
-border: 1px solid rgba(60, 60, 60, 0.5);
+border: 1px solid var(--card-border);
+transition: all 0.3s ease;
 }
 
 .filter-select {
 width: 100%;
 max-width: 300px;
 padding: 0.75rem 1rem;
-background: rgba(20, 20, 20, 0.7);
-border: 1px solid rgba(60, 60, 60, 0.5);
+background: var(--input-bg);
+border: 1px solid var(--input-border);
 border-radius: 8px;
-color: white;
+color: var(--text-primary);
 font-size: 0.875rem;
 font-weight: 500;
 cursor: pointer;
@@ -33,17 +34,17 @@ margin-bottom: 1rem;
 .filter-select:focus {
 outline: none;
 border-color: #a855f7;
-background: rgba(20, 20, 20, 0.9);
+background: var(--input-bg);
 }
 
 .filter-select option {
-background: #1a1a1a;
-color: white;
+background: var(--card-bg);
+color: var(--text-primary);
 }
 
 .custom-range {
 padding-top: 1rem;
-border-top: 1px solid rgba(60, 60, 60, 0.5);
+border-top: 1px solid var(--card-border);
 margin-top: 1rem;
 }
 
@@ -66,17 +67,17 @@ min-width: 200px;
 .filter-label {
 display: block;
 font-size: 0.875rem;
-color: #9ca3af;
+color: var(--text-secondary);
 margin-bottom: 0.5rem;
 }
 
 .filter-input {
 width: 100%;
 padding: 0.75rem 1rem;
-background: rgba(20, 20, 20, 0.7);
-border: 1px solid rgba(60, 60, 60, 0.5);
+background: var(--input-bg);
+border: 1px solid var(--input-border);
 border-radius: 8px;
-color: white;
+color: var(--text-primary);
 font-size: 0.875rem;
 transition: all 0.3s;
 }
@@ -84,7 +85,7 @@ transition: all 0.3s;
 .filter-input:focus {
 outline: none;
 border-color: #a855f7;
-background: rgba(20, 20, 20, 0.9);
+background: var(--input-bg);
 }
 
 .filter-btn {
@@ -106,10 +107,10 @@ box-shadow: 0 6px 20px rgba(168, 85, 247, 0.6);
 
 .filter-btn-reset {
 padding: 0.75rem 1.5rem;
-background: rgba(60, 60, 60, 0.5);
-border: none;
+background: var(--nav-item-bg);
+border: 1px solid var(--input-border);
 border-radius: 8px;
-color: white;
+color: var(--text-primary);
 font-weight: 500;
 cursor: pointer;
 transition: all 0.3s;
@@ -118,7 +119,7 @@ display: inline-block;
 }
 
 .filter-btn-reset:hover {
-background: rgba(80, 80, 80, 0.6);
+background: var(--nav-item-hover);
 }
 
 /* Metrics Cards */
@@ -130,17 +131,17 @@ margin-bottom: 2rem;
 }
 
 .metric-card {
-background: rgba(26, 26, 26, 0.7);
+background: var(--card-bg);
 backdrop-filter: blur(10px);
 border-radius: 1rem;
 padding: 1.5rem;
-border: 1px solid rgba(60, 60, 60, 0.5);
+border: 1px solid var(--card-border);
 transition: all 0.3s;
 }
 
 .metric-card:hover {
 transform: translateY(-4px);
-box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+box-shadow: 0 8px 25px var(--shadow-hover);
 }
 
 .metric-header {
@@ -152,7 +153,7 @@ margin-bottom: 1rem;
 
 .metric-info h3 {
 font-size: 0.875rem;
-color: #9ca3af;
+color: var(--text-secondary);
 margin-bottom: 0.5rem;
 }
 
@@ -168,7 +169,7 @@ background-clip: text;
 
 .metric-date {
 font-size: 0.75rem;
-color: #6b7280;
+color: var(--text-tertiary);
 }
 
 .metric-icon {
@@ -189,12 +190,13 @@ height: 28px;
 
 /* Top Products */
 .top-products-card {
-background: rgba(26, 26, 26, 0.7);
+background: var(--card-bg);
 backdrop-filter: blur(10px);
 border-radius: 1rem;
 padding: 1.5rem;
-border: 1px solid rgba(60, 60, 60, 0.5);
+border: 1px solid var(--card-border);
 margin-bottom: 2rem;
+transition: all 0.3s ease;
 }
 
 .card-header {
@@ -203,7 +205,7 @@ justify-content: space-between;
 align-items: center;
 margin-bottom: 1.5rem;
 padding-bottom: 1rem;
-border-bottom: 1px solid rgba(60, 60, 60, 0.5);
+border-bottom: 1px solid var(--card-border);
 }
 
 .card-header h2 {
@@ -222,7 +224,8 @@ display: flex;
 align-items: center;
 gap: 1rem;
 padding: 1rem;
-background: rgba(20, 20, 20, 0.7);
+background: var(--card-bg-secondary);
+border: 1px solid var(--card-border);
 border-radius: 12px;
 transition: all 0.3s;
 text-decoration: none;
@@ -230,9 +233,10 @@ color: inherit;
 }
 
 .product-item:hover {
-background: rgba(30, 30, 30, 0.8);
+background: var(--card-hover);
 transform: translateX(4px);
 cursor: pointer;
+box-shadow: 0 4px 12px var(--shadow-color);
 }
 
 .product-rank {
@@ -266,7 +270,7 @@ margin-bottom: 0.25rem;
 
 .product-category {
 font-size: 0.875rem;
-color: #9ca3af;
+color: var(--text-secondary);
 }
 
 .product-stats {
@@ -282,23 +286,24 @@ margin-bottom: 0.25rem;
 
 .product-revenue {
 font-size: 0.875rem;
-color: #9ca3af;
+color: var(--text-secondary);
 }
 
 .product-orders {
 font-size: 0.75rem;
-color: #6b7280;
+color: var(--text-tertiary);
 margin-top: 0.25rem;
 }
 
 /* Chart */
 .chart-card {
-background: rgba(26, 26, 26, 0.7);
+background: var(--card-bg);
 backdrop-filter: blur(10px);
 border-radius: 1rem;
 padding: 1.5rem;
-border: 1px solid rgba(60, 60, 60, 0.5);
+border: 1px solid var(--card-border);
 margin-bottom: 2rem;
+transition: all 0.3s ease;
 }
 
 .chart-container {
@@ -309,7 +314,7 @@ margin-top: 1rem;
 .no-data {
 text-align: center;
 padding: 3rem 1rem;
-color: #9ca3af;
+color: var(--text-secondary);
 }
 
 .no-data-icon {
@@ -479,11 +484,43 @@ display: block;
 @push('scripts')
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
+    // Get current theme
+    function getCurrentTheme() {
+        return document.documentElement.getAttribute('data-theme') || 'dark';
+    }
+
+    // Get theme colors
+    function getThemeColors() {
+        const theme = getCurrentTheme();
+        if (theme === 'light') {
+            return {
+                gridColor: 'rgba(229, 231, 235, 0.8)',
+                tickColor: '#6b7280',
+                tooltipBg: 'rgba(255, 255, 255, 0.95)',
+                tooltipBorder: '#e5e7eb',
+                tooltipTitle: '#111827',
+                tooltipBody: '#374151',
+                pointBorder: '#ffffff'
+            };
+        } else {
+            return {
+                gridColor: 'rgba(60, 60, 60, 0.3)',
+                tickColor: '#9ca3af',
+                tooltipBg: 'rgba(20, 20, 20, 0.95)',
+                tooltipBorder: '#a855f7',
+                tooltipTitle: '#ffffff',
+                tooltipBody: '#ffffff',
+                pointBorder: '#000000'
+            };
+        }
+    }
+
     // Sales Chart
     const ctx = document.getElementById('salesChart');
     const chartData = @json($chartData);
+    const themeColors = getThemeColors();
 
-    new Chart(ctx, {
+    const salesChart = new Chart(ctx, {
         type: 'line',
         data: {
             labels: chartData.map(item => item.date),
@@ -495,7 +532,7 @@ display: block;
                 tension: 0.4,
                 fill: true,
                 pointBackgroundColor: '#a855f7',
-                pointBorderColor: '#fff',
+                pointBorderColor: themeColors.pointBorder,
                 pointBorderWidth: 2,
                 pointRadius: 5,
                 pointHoverRadius: 7
@@ -509,10 +546,10 @@ display: block;
                     display: false
                 },
                 tooltip: {
-                    backgroundColor: 'rgba(20, 20, 20, 0.95)',
-                    titleColor: '#fff',
-                    bodyColor: '#fff',
-                    borderColor: '#a855f7',
+                    backgroundColor: themeColors.tooltipBg,
+                    titleColor: themeColors.tooltipTitle,
+                    bodyColor: themeColors.tooltipBody,
+                    borderColor: themeColors.tooltipBorder,
                     borderWidth: 1,
                     padding: 12,
                     displayColors: false,
@@ -531,10 +568,10 @@ display: block;
                 y: {
                     beginAtZero: true,
                     grid: {
-                        color: 'rgba(60, 60, 60, 0.3)'
+                        color: themeColors.gridColor
                     },
                     ticks: {
-                        color: '#9ca3af',
+                        color: themeColors.tickColor,
                         callback: function(value) {
                             if (value >= 1000000) {
                                 return 'Rp ' + (value / 1000000).toFixed(1) + 'M';
@@ -548,15 +585,35 @@ display: block;
                 },
                 x: {
                     grid: {
-                        color: 'rgba(60, 60, 60, 0.3)'
+                        color: themeColors.gridColor
                     },
                     ticks: {
-                        color: '#9ca3af'
+                        color: themeColors.tickColor
                     }
                 }
             }
         }
     });
+
+    // Update chart when theme changes
+    const themeToggle = document.getElementById('themeToggle');
+    if (themeToggle) {
+        themeToggle.addEventListener('click', function() {
+            setTimeout(() => {
+                const newColors = getThemeColors();
+                salesChart.options.scales.y.grid.color = newColors.gridColor;
+                salesChart.options.scales.x.grid.color = newColors.gridColor;
+                salesChart.options.scales.y.ticks.color = newColors.tickColor;
+                salesChart.options.scales.x.ticks.color = newColors.tickColor;
+                salesChart.options.plugins.tooltip.backgroundColor = newColors.tooltipBg;
+                salesChart.options.plugins.tooltip.titleColor = newColors.tooltipTitle;
+                salesChart.options.plugins.tooltip.bodyColor = newColors.tooltipBody;
+                salesChart.options.plugins.tooltip.borderColor = newColors.tooltipBorder;
+                salesChart.data.datasets[0].pointBorderColor = newColors.pointBorder;
+                salesChart.update();
+            }, 100);
+        });
+    }
 
     // Handle Filter Change
     function handleFilterChange(value) {
